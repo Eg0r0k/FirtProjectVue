@@ -24,5 +24,10 @@ export default {
 .setting-btn:hover{
 transition: 0.2s ease-in-out;
     transform: scale(0.95);
+}  
+.current
+{
+    background-color:var(--green);
+    color:var(--white);
 }
 </style>

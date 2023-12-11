@@ -19,7 +19,10 @@ export default {
 <style scoped>    .header {
         background-color: var(--ligth-green);
         padding: 33px 0;
-
+    position: sticky;
+    left: 0;
+    top: 0;
+    right: 0;
     }
 
 
