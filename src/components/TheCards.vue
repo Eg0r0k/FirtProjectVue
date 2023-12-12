@@ -1,7 +1,7 @@
 <template>
     <section class="cards">
       <div class="cards__container">
-        <div class="card" v-for="{ artName, artAuthor, artPrice, artType, artUrlImage } in sortedArtInfo" :key="artUrlImage">
+        <div class="card" v-for="{ artName, artAuthor, artPrice, artType, artUrlImage } in sortedArts" :key="artUrlImage">
           <div class="card__picture">
             <img :src="`/img/paint_${artUrlImage}.jpg`" alt="">
           </div>
@@ -25,48 +25,22 @@
   
   <script>
 import CommonBtn from './CommonBtn.vue';
-import { computed, ref } from 'vue';
-import { artInfo } from '@/constants';
+
+
+
 
 export default {
   components: {
     CommonBtn,
   },
-  setup() {
-    const sortCriteria = ref('contry'); // Default sorting criteria
-
-    const customSortOrder = ['FR', 'DE', 'ENG']; // Define your custom sorting order
-
-    const sortedArtInfo = computed(() => {
-      const artInfoWithCountryFR = artInfo.filter(item => item.contry === 'ENG');
-
-      return artInfoWithCountryFR.sort((a, b) => {
-        const valueA = a[sortCriteria];
-        const valueB = b[sortCriteria];
-
-        // Check if the values are defined before using localeCompare
-        if (valueA !== undefined && valueB !== undefined) {
-          if (sortCriteria === 'contry') {
-            // Custom sorting order for the 'contry' property
-            const indexA = customSortOrder.indexOf(valueA);
-            const indexB = customSortOrder.indexOf(valueB);
-            return indexA - indexB;
-          } else {
-            // Default sorting for other criteria
-            return valueA.localeCompare(valueB);
-          }
-        } else {
-          // Handle the case where either value is undefined
-          return 0; // You may adjust this based on your requirements
-        }
-      });
-    });
-
-    return {
-      sortedArtInfo,
-      sortCriteria,
-    };
-  },
+  props: 
+  {
+    sortedArts: 
+    {
+      type:Array
+    }
+  }
+  
 };
 </script>
 

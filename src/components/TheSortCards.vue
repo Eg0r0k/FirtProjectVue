@@ -6,43 +6,57 @@
             </h2>
             <nav class="sort__settings" >
                 <settingBtn
-                v-for="setting in settingsBtn"
+                v-for="setting in settings"
                 :key="setting.id"
-                @click="selectCountry(setting)"
-                :class="{'current':currentSetting === true }"
+                @click="selectCountry()"
+               
                 >
                 {{ setting.text }}
                 </settingBtn>
             </nav>
         </div>
     </section>
-   <TheCards/>
+   <TheCards :sortedArts="sortedArts"/>
 </template>
 <script>
 import settingBtn from './settingBtn.vue';
 import TheCards from './TheCards.vue';
-import { settingsBtn } from '@/constants'
+import { ARTINFO } from '@/constants'
+
 export default {
     components: {
         settingBtn,
         TheCards,
-    },
-    setup() {
-        const currentSetting = true;
         
-        return {
-            settingsBtn,currentSetting
-        };
+    },
+    
+    setup() {
+  
+       
     },
     methods:
     {
-        selectCountry( setting ) {
-
-            const currentContry = setting.country
+        selectCountry() {
             
-            console.log(setting,currentContry)
         }
-        
+
+    },
+    computed:
+    {
+      sortedArts()
+      {
+        return  ARTINFO.filter(element => {
+            return element.contry == "ENG" //Заменить 
+        })
+      
+      }
+    },
+    props:
+    {
+        settings:
+        {
+            type:Array
+        }
     }
 }
 </script>
@@ -80,5 +94,4 @@ export default {
        gap: 30px;
        justify-content: center;
     } */
-
 </style>

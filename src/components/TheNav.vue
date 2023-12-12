@@ -1,6 +1,6 @@
 <template lang="">
-    <nav class="header__nav nav">
-        <CommonBtn class="nav__burger" @click="show = !show">
+    <nav class="header__nav nav" >
+        <CommonBtn class="nav__burger" @click="openNav">
             <Menu/>
            </CommonBtn>
            <Transition name="slide-fade">
@@ -32,13 +32,23 @@ export default {
         Menu,
         NavItem
     },
-
+    methods:
+    {
+        openNav()
+      {
+    
+        this.show ? this.show=false:this.show=true;
+        
+      }
+     
+    },
     setup() {
         const show = ref(false);
         const userWindowWidth = reactive({ width: window.innerWidth });
 
         const showNav = () => {
             show.value = userWindowWidth.width > 450;
+
         };
 
         watch(userWindowWidth, showNav);
@@ -113,10 +123,11 @@ export default {
         top: 100%;
         flex-direction: column;
         padding: 15px 15px;
-        left: -15px;
+        left: 0px;
         right: -20px;
         background-color: var(--ligth-green);
-        min-height: 433px;
+       z-index: 100;
+       height: 100vh;
     }
 
     .nav__burger {
@@ -140,7 +151,8 @@ export default {
 
     .nav {
         width: 100%;
-        padding: 17px 0;
+        padding: 17px 15px;
+        background-color: var(--ligth-green);
     }
 
     .nav__cart {
@@ -148,7 +160,7 @@ export default {
     }
 
     .nav__menu {
-
+        
         margin-right: 5px !important;
     }
 }

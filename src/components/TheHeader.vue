@@ -16,34 +16,39 @@ export default {
     },
 }
 </script>
-<style scoped>    .header {
-        background-color: var(--ligth-green);
-        padding: 33px 0;
-    position: sticky;
-    left: 0;
-    top: 0;
-    right: 0;
-    }
+<style scoped>   
+.header {
+       background-color: var(--ligth-green);
+       padding: 33px 0;
+       position: sticky;
+       left: 0;
+       top: 0;
+       right: 0;
+   }
 
 
 
-    .header__container {
-      
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
+   .header__container {
+
+       align-items: center;
+       display: flex;
+       justify-content: space-between;
 
 
-    }
-    @media screen and (max-width:656px) {
-        .header__container {
-          
-            flex-wrap: wrap;
-        }
-        .header 
-        {
-            padding-top: 22px;
-            padding-bottom: 0;
-        }
-    }
+   }
+
+   @media screen and (max-width:656px) {
+       .header__container {
+
+           flex-wrap: wrap;
+           padding: 0;
+       }
+
+       .header {
+           padding-top: 22px;
+           padding-bottom: 0;
+           background-color: var(--white);
+           
+       }
+   }
 </style>

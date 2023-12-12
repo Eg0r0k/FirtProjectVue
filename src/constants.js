@@ -1,4 +1,4 @@
-export const artInfo =
+export const ARTINFO =
             [
                 { id: 1, artName: "Охота Амура", artAuthor: "Марсель Руссо", artPrice: "14 500 руб", artType: "Холст, масло (50х80) ", artUrlImage: "15", contry: "FR" },
                 { id: 2, artName: "Дама с собачкой", artAuthor: "Анри Селин", artPrice: "16 500 руб", artType: "Акрил, бумага (50х80) ", artUrlImage: "1", contry: "FR" },
@@ -23,7 +23,7 @@ export const artInfo =
             ]
 
 
-            export const settingsBtn = [
+            export const SETTINGS_BTN = [
                 { id: 1, text: "Франция", country:"FR"},
                 { id: 2, text: "Германия", country:"DE"},
                 { id: 3, text: "Англия",country:"ENG" },
