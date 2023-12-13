@@ -77,7 +77,10 @@ export default {
     width: 100%;
 
 }
-
+.cards
+{
+  margin-bottom: 70px;
+}
 dl {
     color: var(--black);
 }

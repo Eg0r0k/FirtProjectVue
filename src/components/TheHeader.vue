@@ -1,7 +1,7 @@
 <template lang="">
     <header class="header">
         <div class="header__container">
-        <Brend/>
+        <Brend class="header__brand"/>
           <TheNav/>
         </div>
       </header>
@@ -26,7 +26,12 @@ export default {
        right: 0;
    }
 
-
+   @media screen and (max-width:656px) {
+       .header__brand
+       {
+        margin:  0  auto 16px ;
+       }
+    }
 
    .header__container {
 

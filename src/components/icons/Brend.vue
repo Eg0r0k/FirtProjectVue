@@ -20,12 +20,7 @@ export default {
         align-items: center;
      
     }
-    @media screen and (max-width:656px) {
-       .brand
-       {
-        margin:  0  auto 16px ;
-       }
-    }
+ 
     .brand__text
     {
         font-weight: 700;
