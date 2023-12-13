@@ -1,12 +1,13 @@
 <template lang="">
-    <button class="setting-btn">
+    <button class="setting-btn" @click="handleClick">
         <slot></slot>
     </button>
 </template>
 
 <script>
 export default {
-    name:"settingBtn"
+    name:"settingBtn",
+ 
 }
 </script>
 <style scoped>

@@ -8,8 +8,8 @@
                 <settingBtn
                 v-for="setting in settings"
                 :key="setting.id"
-                @click="selectCountry()"
-               
+                @click="selectCountry(setting)"
+            
                 >
                 {{ setting.text }}
                 </settingBtn>
@@ -24,40 +24,48 @@ import TheCards from './TheCards.vue';
 import { ARTINFO } from '@/constants'
 
 export default {
+    props:
+    {
+        settings:
+        {
+            type: Array
+        }
+    },
+
     components: {
         settingBtn,
         TheCards,
-        
+
     },
+
+    data() {
+        return {
+            selectedCountry: "FR",
     
-    setup() {
-  
-       
+        }
     },
+
     methods:
     {
-        selectCountry() {
-            
+        selectCountry(setting) {
+
+            this.selectedCountry = setting.country
+           
         }
 
     },
     computed:
     {
-      sortedArts()
-      {
-        return  ARTINFO.filter(element => {
-            return element.contry == "ENG" //Заменить 
-        })
-      
-      }
-    },
-    props:
-    {
-        settings:
-        {
-            type:Array
+        sortedArts() {
+
+            return ARTINFO.filter(element => {
+                return element.contry === this.selectedCountry
+            })
+
         }
-    }
+    },
+
+
 }
 </script>
 

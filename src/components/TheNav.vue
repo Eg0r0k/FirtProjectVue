@@ -124,7 +124,7 @@ export default {
         flex-direction: column;
         padding: 15px 15px;
         left: 0px;
-        right: -20px;
+        right: -5px;
         background-color: var(--ligth-green);
        z-index: 100;
        height: 100vh;
