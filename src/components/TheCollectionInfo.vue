@@ -31,11 +31,12 @@ export default {
     }
 }
 </script>
-<style scoped >
+<style >
 .collectionInfo {
 
-    background-image: url("../../public/img/pic_background.png");
-    background-position: left;
+    background-image: url("/img/pic_background.png") ;
+
+   background-position: left;
 background-size: cover;
     background-repeat: no-repeat;
 }
