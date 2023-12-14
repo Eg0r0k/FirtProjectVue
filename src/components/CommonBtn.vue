@@ -1,19 +1,13 @@
 <template lang="">
- <button class="btn">
+  <button class="btn">
     <slot class=""></slot>
- </button>
+  </button>
 </template>
-<script>
-export default {
-    
-}
-</script>
+<script setup></script>
 <style scoped>
-    .btn 
-    {
-        border:none;
-        background-color:transparent;
-        cursor: pointer; 
-       
-    }
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
 </style>

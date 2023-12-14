@@ -28,7 +28,7 @@
   --white: #ffff;
   --gray-green: rgba(134, 146, 139, 1);
   --body-backColor: rgba(244, 246, 245, 1);
-  --yellow: #EEDB6D;
+  --yellow: #eedb6d;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -86,34 +86,27 @@ img {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  color:var(--green);
+  color: var(--green);
   transition: all 0.1s ease-in-out;
 }
-.btn--outline:active
-{
+.btn--outline:active {
   transform: scale(0.98);
-
 }
 
-
-.btn--outline--yellow 
-{
+.btn--outline--yellow {
   transition: all 0.1s ease-in-out;
   padding: 20px 60px;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  color:var(--black);
+  color: var(--black);
   background-color: var(--yellow) !important;
 }
-.btn--outline--yellow:active
-{
+.btn--outline--yellow:active {
   transform: scale(0.98);
-
 }
 
-.fill-green
-{
-  color:var(--green);
+.fill-green {
+  color: var(--green);
 }
