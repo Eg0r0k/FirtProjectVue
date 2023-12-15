@@ -9,20 +9,29 @@
 <script setup>
 import TheMainContent from "./TheMainContent.vue";
 </script>
-<style scoped>
-.main__container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+<style scoped lang="scss">
+@import "@/assets/_base";
 
 .main {
   margin-bottom: 70px;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__img {
+    min-width: 195px;
+    min-height: 239px;
+  }
 }
 
-.main__img {
-  min-width: 195px;
-  min-height: 239px;
+@media screen and (max-width: $notebook-breakpoint) {
+  .main {
+    margin-top: 60px;
+    &__img {
+      display: none;
+    }
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -35,7 +44,7 @@ import TheMainContent from "./TheMainContent.vue";
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $small-tablet-breakpoint) {
   .main {
     margin-top: 50px;
   }

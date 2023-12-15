@@ -14,15 +14,15 @@ export default {
   name: "TheBrend",
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
+@import "@/assets/_base";
 .brand {
   display: flex;
   align-items: center;
-}
-
-.brand__text {
-  font-weight: 700;
-  color: var(--green);
-  margin-left: 8px;
+  &__text {
+    font-weight: 700;
+    color: $green;
+    margin-left: 8px;
+  }
 }
 </style>

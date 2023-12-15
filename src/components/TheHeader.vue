@@ -10,39 +10,37 @@
 import Brend from "./icons/Brend.vue";
 import TheNav from "./TheNav.vue";
 </script>
-<style scoped>
+<style scoped lang="scss">
+@import "@/assets/_base.scss";
+
 .header {
-  background-color: var(--ligth-green);
+  background-color: $ligth-green;
   padding: 33px 0;
   position: sticky;
   left: 0;
   top: 0;
   right: 0;
-  z-index: 100;
-}
-
-@media screen and (max-width: 656px) {
-  .header__brand {
-    margin: 0 auto 16px;
+  z-index: $header-z;
+  &__container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
   }
-}
-
-.header__container {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-@media screen and (max-width: 656px) {
-  .header__container {
-    flex-wrap: wrap;
-    padding: 0;
+  &__brand {
+    @media screen and (max-width: $notebook-breakpoint) {
+      margin: 0 auto 16px;
+    }
   }
-
-  .header {
+  &__container {
+    @media screen and (max-width: $notebook-breakpoint) {
+      flex-wrap: wrap;
+      padding: 0;
+    }
+  }
+  @media screen and (max-width: $notebook-breakpoint) {
     padding-top: 22px;
     padding-bottom: 0;
-    background-color: var(--white);
+    background-color: $white;
   }
 }
 </style>

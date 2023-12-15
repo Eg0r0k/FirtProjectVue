@@ -4,38 +4,49 @@
       <Menu />
     </CommonBtn>
     <Transition name="slide-fade">
-      <ul class="nav__menu" v-if="show">
+      <ul class="nav__menu" v-if="showNav">
         <NavItem v-for="item in navItems" :key="item.id">
           <a :href="`#${item.link}`"> {{ item.text }}</a>
         </NavItem>
       </ul>
     </Transition>
-    <CommonBtn class="nav__cart">
+    <CommonBtn class="nav__cart" @click="openCart">
       <Cart />
     </CommonBtn>
   </nav>
+  <Transition name="slide-fade">
+    <TheCart v-if="showCart" :showCart="showCart" @update:showCart="updateShowCart" />
+  </Transition>
 </template>
 <script setup>
 import Cart from "./icons/Cart.vue";
 import CommonBtn from "./CommonBtn.vue";
 import Menu from "./icons/Menu.vue";
 import NavItem from "./NavItem.vue";
-
+import TheCart from "./TheCart.vue";
 import { ref, reactive, watchEffect } from "vue";
 
-const show = ref(false);
+const showNav = ref(false);
 const userWindowWidth = reactive({ width: window.innerWidth });
+const showCart = ref(false);
 
+const openCart = () => {
+  showCart.value = !showCart.value;
+};
 const openNav = () => {
-  show.value = !show.value;
+  showNav.value = !showNav.value;
 };
 
 watchEffect(() => {
-  show.value = userWindowWidth.width > 450;
+  showNav.value = userWindowWidth.width > 450;
 });
 
 const handleResize = () => {
   userWindowWidth.width = window.innerWidth;
+};
+
+const updateShowCart = value => {
+  showCart.value = value;
 };
 
 window.addEventListener("resize", handleResize);
@@ -46,31 +57,79 @@ const navItems = ref([
   { id: 3, text: "О нас", link: "about" },
 ]);
 </script>
-<style scoped>
+<style scoped lang="scss">
+@import "@/assets/main.scss";
+
 .nav {
   display: flex;
   position: relative;
+  &__burger {
+    display: none;
+  }
+  &__cart {
+    aspect-ratio: 1/1;
+  }
+  &__menu {
+    display: flex;
+    gap: 59px;
+    margin-right: 60px;
+  }
+  &__list {
+    display: flex;
+
+    align-items: center;
+    & a {
+      color: $black;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+  }
 }
 
-.nav__cart {
-  aspect-ratio: 1/1;
+@media screen and (max-width: 450px) {
+  .nav {
+    &__menu {
+      position: absolute;
+      display: flex;
+      top: 100%;
+      flex-direction: column;
+      padding: 15px 15px;
+      left: 0px;
+      right: -5px;
+      background-color: $ligth-green;
+      z-index: 100;
+      height: 100vh;
+    }
+    &__burger {
+      display: inline-block;
+    }
+  }
 }
 
-.nav__burger {
-  display: none;
+@media screen and (max-width: $notebook-breakpoint) {
+  .nav {
+    width: 100%;
+    padding: 17px 15px;
+    background-color: $ligth-green;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: #c3d1c6;
+      height: 1px;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    &__cart {
+      margin-left: auto;
+    }
+    &__menu {
+      margin-right: 5px !important;
+    }
+  }
 }
-
-.nav__menu {
-  display: flex;
-  gap: 60px;
-  margin-right: 60px;
-}
-
-.nav__list a {
-  color: var(--black);
-  font-weight: 500;
-}
-
 .slide-fade-enter-active {
   transition: all 0.4s ease-out;
 }
@@ -84,52 +143,5 @@ const navItems = ref([
   transform: translateY(-20px);
 
   opacity: 0;
-}
-
-@media screen and (max-width: 450px) {
-  .nav__menu {
-    position: absolute;
-    display: flex;
-    top: 100%;
-    flex-direction: column;
-    padding: 15px 15px;
-    left: 0px;
-    right: -5px;
-    background-color: var(--ligth-green);
-    z-index: 100;
-    height: 100vh;
-  }
-
-  .nav__burger {
-    display: inline-block;
-  }
-}
-
-@media screen and (max-width: 656px) {
-  .nav::before {
-    content: "";
-    display: block;
-    position: absolute;
-    background-color: #c3d1c6;
-    height: 1px;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .nav {
-    width: 100%;
-    padding: 17px 15px;
-    background-color: var(--ligth-green);
-  }
-
-  .nav__cart {
-    margin-left: auto;
-  }
-
-  .nav__menu {
-    margin-right: 5px !important;
-  }
 }
 </style>

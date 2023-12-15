@@ -14,22 +14,23 @@
 <script setup>
 import CommonBtn from "./CommonBtn.vue";
 </script>
-<style scoped>
-.main__content {
-  max-width: 540px;
-}
-.main__title {
-  color: var(--black);
-
-  font-size: clamp(1.875rem, 1.339rem + 2.679vw, 3.75rem);
-}
-
-.main__about {
-  margin-top: 20px;
-  margin-bottom: 60px;
-  font-size: clamp(0.875rem, 0.804rem + 0.357vw, 1.125rem);
-  color: var(--gray-green);
-  font-style: normal;
-  font-weight: 500;
+<style scoped lang="scss">
+@import "@/assets/_base";
+.main {
+  &__content {
+    max-width: 540px;
+  }
+  &__title {
+    color: $black;
+    font-size: clamp(1.875rem, 1.339rem + 2.679vw, 3.75rem);
+  }
+  &__about {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    font-size: clamp(0.875rem, 0.804rem + 0.357vw, 1.125rem);
+    color: $gray_green;
+    font-style: normal;
+    font-weight: 500;
+  }
 }
 </style>

@@ -1,0 +1,11 @@
+@mixin button-styles {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  font-weight: $button-font-weight;
+  font-size: $button-font-size;
+  color: $black;
+  &:hover {
+    transition: 0.2s ease-in-out;
+  }
+}

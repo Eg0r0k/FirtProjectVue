@@ -74,131 +74,168 @@ import Facebook from "@/components/icons/Facebook.vue";
 import Instagram from "@/components/icons/Instagram.vue";
 import Youtube from "@/components/icons/Youtube.vue";
 </script>
-<style scoped>
+<style scoped lang="scss">
+@import "@/assets/_base.scss";
+
 .footer {
-  background-color: var(--ligth-green);
+  background-color: $ligth_green;
+
+  &__container {
+    display: flex;
+    padding: 23px 20px;
+  }
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__contacts {
+    margin-right: 115px;
+    display: flex;
+    white-space: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 60px;
+  }
+
+  &__media {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    padding: 3px 0;
+  }
+
+  &__menu {
+    & h3 {
+      color: $black;
+      font-size: 20px;
+      margin-bottom: 3px;
+      font-weight: 500;
+    }
+  }
+
+  .__brand--name {
+    margin-bottom: 6px;
+  }
 }
-.footer__container {
-  display: flex;
-  padding: 23px 20px;
-}
-.footer__wrapper {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-.footer__contacts {
-  margin-right: 115px;
-  display: flex;
-  white-space: nowrap;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.footer__nav {
-  display: flex;
-  gap: 60px;
-}
-.footer__media {
-  display: flex;
-  flex-direction: column;
-}
-.footer__media-menu {
+
+.media {
   display: flex;
   gap: 30px;
   margin-bottom: 10px;
 }
-.footer__list {
-  padding: 3px 0;
+
+.contacts {
+  &__tel {
+    color: $black;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  &__links {
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+  }
 }
-.footer__menu h3 {
-  color: var(--black);
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 3px;
-}
-.contacts__tel {
-  color: var(--black);
-  font-size: 20px;
-  font-weight: 500;
-}
-.contacts__links {
-  gap: 8px;
-  display: flex;
-  flex-direction: column;
-}
+
 .link {
-  color: var(--gray-green);
+  color: $gray_green;
   transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: $black;
+  }
 }
-.link:hover {
-  color: var(--black);
-}
+
 svg {
-  fill: var(--black);
-  transition: 0.2s ease-in-out;
+  fill: $black;
+  transition: 0.2 ease-in-out;
+
+  &:hover {
+    fill: $gray_green;
+  }
 }
-svg:hover {
-  fill: var(--gray-green);
-}
+
 .footer__brand--name,
 .all-rights-reserved {
-  color: var(--gray-green);
+  color: $gray_green;
   font-size: 12px;
 }
-.footer__brand--name {
-  margin-bottom: 6px;
-}
-@media screen and (max-width: 968px) {
-  .footer__container {
-    flex-direction: column;
-    gap: 30px;
+
+@media screen and (max-width: $tablet-breakpoint) {
+  .footer {
+    &__container {
+      flex-direction: column;
+      gap: 30px;
+    }
   }
+
   .contacts {
     flex-direction: row;
     margin-right: 0;
   }
 }
-@media screen and (max-width: 650px) {
-  .footer__wrapper {
-    flex-wrap: wrap;
-  }
-  .footer__nav {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .footer__media {
-    width: 100%;
-  }
-  .footer__INK {
-    justify-content: center;
-  }
-  .footer__INK {
-    display: flex;
-    flex-direction: row;
-  }
-  .media {
-    justify-content: center;
-  }
-  .footer__media {
-    position: relative;
-    margin-top: 32px;
-  }
-  .footer__media::before {
-    content: "";
-    display: block;
-    position: absolute;
-    background-color: #c3d1c6;
-    height: 1px;
-    width: 100%;
-    top: -16px;
-    left: 0;
-    right: 0;
+
+@media screen and (max-width: $notebook-breakpoint) {
+  .footer {
+    &__wrapper {
+      flex-wrap: wrap;
+    }
+
+    &__nav {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    &__media {
+      width: 100%;
+    }
+
+    &__INK {
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__media {
+      position: relative;
+      margin-top: 32px;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: #c3d1c6;
+        height: 1px;
+        width: 100%;
+        top: -16px;
+        left: 0;
+        right: 0;
+      }
+    }
   }
 }
+
+.media {
+  justify-content: center;
+}
+
 @media screen and (max-width: 488px) {
-  .footer__nav {
-    flex-wrap: wrap;
+  .footer {
+    &__nav {
+      flex-wrap: wrap;
+    }
   }
+
   .contacts {
     flex-direction: column;
     gap: 26px;

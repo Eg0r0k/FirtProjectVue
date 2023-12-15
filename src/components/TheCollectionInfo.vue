@@ -38,58 +38,64 @@
 <script setup>
 import CommonBtn from "./CommonBtn.vue";
 </script>
-<style scoped>
+<style scoped lang="scss">
+@import "@/assets/_base";
+
 .collectionInfo {
   background-image: url("/img/pic_background.png");
   background-position: left;
   background-size: cover;
   background-repeat: no-repeat;
+  &__container {
+    padding: clamp(3.125rem, 2.292rem + 2.315vw, 4.375rem) 15px;
+    color: $white;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+  }
+  &__text {
+    max-width: 540px;
+    margin-bottom: 60px;
+  }
+  &__title {
+    font-size: clamp(1.5rem, 1.25rem + 0.694vw, 1.875rem);
+
+    font-weight: 500;
+  }
+  &__star {
+    height: clamp(3.125rem, 2.589rem + 2.679vw, 5rem);
+    margin-right: clamp(0.625rem, 0.152rem + 1.22vw, 1.25rem);
+  }
 }
 
-.collectionInfo__container {
-  padding: clamp(3.125rem, 2.292rem + 2.315vw, 4.375rem) 15px;
-  color: var(--white);
-}
+/* ПРЕПИСАТЬ! */
 
-.collectionInfo__header {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  margin-bottom: 20px;
-}
-
-.collectionInfo__text {
-  max-width: 540px;
-  margin-bottom: 60px;
-}
-
-@media screen and (max-width: 768px) {
-  .collectionInfo__text {
-    max-width: 100%;
-    margin-bottom: 30px;
+@media screen and (max-width: $small-tablet-breakpoint) {
+  .collectionInfo {
+    &__text {
+      max-width: 100%;
+      margin-bottom: 30px;
+    }
   }
 }
 @media screen and (max-width: 576px) {
-  .collectionInfo__text {
-    margin-bottom: 20px;
+  .collectionInfo {
+    &__text {
+      margin-bottom: 20px;
+    }
   }
 }
 @media screen and (max-width: 320px) {
-  .collectionInfo__text {
-    margin-bottom: 30px;
+  .collectionInfo {
+    &__text {
+      margin-bottom: 30px;
+    }
+    &__btn {
+      width: 100%;
+    }
   }
-  .collectionInfo__btn {
-    width: 100%;
-  }
-}
-.collectionInfo__title {
-  font-size: clamp(1.5rem, 1.25rem + 0.694vw, 1.875rem);
-
-  font-weight: 500;
-}
-
-.collectionInfo__star {
-  height: clamp(3.125rem, 2.589rem + 2.679vw, 5rem);
-  margin-right: clamp(0.625rem, 0.152rem + 1.22vw, 1.25rem);
 }
 </style>
