@@ -1,5 +1,5 @@
 <template>
-  <section calss="UsCommand">
+  <section calss="UsCommand" id="about">
     <div class="UsCommand__container">
       <div class="UsCommand__picture">
         <img src="/img/Painting.png" alt="" class="UsCommand__picture--img" />

@@ -21,4 +21,4 @@ import TheUsCommand from "./components/TheUsCommand.vue";
 const settings = ref(SETTINGS_BTN);
 </script>
 
-<style scoped></style>
+<style lang="scss"></style>

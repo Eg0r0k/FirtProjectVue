@@ -15,17 +15,16 @@
       </nav>
     </div>
   </section>
-  <TheCards :sortedArts="sortedArts" />
+  <TheCards :sortedArts="artsStore.sortedArts" />
 </template>
 
 <script setup>
 import SettingBtn from "./SettingBtn.vue";
 import TheCards from "./TheCards.vue";
-import { ref, computed, defineProps } from "vue";
+import { ref } from "vue";
 import { useArtsStore } from "@/stores/CartStore";
 
 const artsStore = useArtsStore();
-console.log(artsStore.arts);
 
 const props = defineProps({
   settings: {
@@ -40,21 +39,12 @@ const isActiveButton = ref(null);
 const selectCountry = setting => {
   selectedCountry.value = setting.country;
   isActiveButton.value = setting;
+  artsStore.setCurrentCountry(setting);
 };
 
 const isActive = setting => {
   return isActiveButton.value === setting;
 };
-
-const sortedArts = computed(() => {
-  if (selectedCountry.value === null) {
-    return artsStore.arts;
-  } else {
-    return artsStore.arts.filter(arts => {
-      return arts.country == selectedCountry.value;
-    });
-  }
-});
 </script>
 
 <style scoped lang="scss">

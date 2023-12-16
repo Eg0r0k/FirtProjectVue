@@ -158,7 +158,7 @@ import Youtube from "@/components/icons/Youtube.vue";
 
 svg {
   fill: $black;
-  transition: 0.2 ease-in-out;
+  transition: 0.2s ease-in-out;
 
   &:hover {
     fill: $gray_green;

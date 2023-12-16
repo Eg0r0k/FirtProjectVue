@@ -1,13 +1,15 @@
 <template>
-  <section class="cards">
+  <section class="cards" id="reproduction">
     <div class="cards__container">
+      <div class="cards__empty" v-if="isArtCollectionEmpty">К сожалению мы ничего не нашли... 😫</div>
       <div
         class="card animate__animated animate__fadeIn"
-        v-for="{ artName, artAuthor, artPrice, artType, artUrlImage } in sortedArts"
-        :key="artUrlImage"
+        v-for="{ artName, artAuthor, artPrice, artType, artUrlImage, id } of sortedArts"
+        :key="id"
+        v-else
       >
         <div class="card__picture">
-          <img :src="`/img/paint_${artUrlImage}.jpg`" alt="" />
+          <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина: ${artName}`" />
         </div>
         <div class="card__content">
           <div class="card__info">
@@ -16,11 +18,11 @@
               <dt class="card__name-art">{{ artName }}</dt>
               <dd class="card__type-art">{{ artType }}</dd>
               <dd class="card__price-art">
-                <span class="fill-green">{{ artPrice }} </span>
+                <span class="fill-green">{{ artPrice.toLocaleString("ru-RU") }} руб </span>
               </dd>
             </dl>
           </div>
-          <CommonBtn class="btn--outline card__btn"> В корзину </CommonBtn>
+          <CommonBtn class="btn--outline card__btn" @click="artsStore.addToCart(id)"> В корзину </CommonBtn>
         </div>
       </div>
     </div>
@@ -28,12 +30,27 @@
 </template>
 
 <script setup>
+import { ref, computed } from "vue";
 import CommonBtn from "./CommonBtn.vue";
+import { useArtsStore } from "@/stores/CartStore";
+
+const artsStore = useArtsStore();
 const props = defineProps({
   sortedArts: {
     type: Array,
+    required: true,
+    default: () => [],
   },
 });
+
+const test = id => {
+  console.log(id);
+};
+
+const checkArtCollection = () => {
+  isArtCollectionEmpty.value = props.sortedArts.length === 0;
+};
+const isArtCollectionEmpty = computed(() => props.sortedArts.length === 0);
 </script>
 
 <style scoped lang="scss">
@@ -78,10 +95,15 @@ const props = defineProps({
 .cards {
   margin-bottom: 70px;
   &__container {
+    min-height: 400px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-items: center;
     gap: 30px;
+  }
+  &__empty {
+    align-self: center;
+    font-size: 30px;
   }
 }
 

@@ -1,17 +1,18 @@
 <template lang="">
   <nav class="header__nav nav">
-    <CommonBtn class="nav__burger" @click="openNav">
+    <CommonBtn class="nav__burger" @click="toggleNav">
       <Menu />
     </CommonBtn>
     <Transition name="slide-fade">
       <ul class="nav__menu" v-if="showNav">
         <NavItem v-for="item in navItems" :key="item.id">
-          <a :href="`#${item.link}`"> {{ item.text }}</a>
+          <a @click="toggleNav" :href="`#${item.link}`"> {{ item.text }}</a>
         </NavItem>
       </ul>
     </Transition>
-    <CommonBtn class="nav__cart" @click="openCart">
-      <Cart />
+    <CommonBtn class="nav__cart" @click="toggleCart">
+      <Cart class="nav__cart--icon" />
+      <span class="nav__cart--inCart"> {{ artsStore.totalInCart }} </span>
     </CommonBtn>
   </nav>
   <Transition name="slide-fade">
@@ -24,17 +25,23 @@ import CommonBtn from "./CommonBtn.vue";
 import Menu from "./icons/Menu.vue";
 import NavItem from "./NavItem.vue";
 import TheCart from "./TheCart.vue";
+import { useArtsStore } from "@/stores/CartStore";
 import { ref, reactive, watchEffect } from "vue";
 
 const showNav = ref(false);
 const userWindowWidth = reactive({ width: window.innerWidth });
 const showCart = ref(false);
 
-const openCart = () => {
+const artsStore = useArtsStore();
+
+const toggleCart = () => {
   showCart.value = !showCart.value;
 };
-const openNav = () => {
+const toggleNav = () => {
   showNav.value = !showNav.value;
+  if (userWindowWidth.width > 450) {
+    showNav.value = true;
+  }
 };
 
 watchEffect(() => {
@@ -63,6 +70,21 @@ const navItems = ref([
 .nav {
   display: flex;
   position: relative;
+  &__cart {
+    position: relative;
+    &--inCart {
+      position: absolute;
+      right: -5px;
+      top: -5px;
+      background-color: $green;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 16px;
+      text-align: center;
+      color: $white;
+    }
+  }
   &__burger {
     display: none;
   }
@@ -82,6 +104,10 @@ const navItems = ref([
       color: $black;
       font-weight: 500;
       white-space: nowrap;
+      transition: 0.2s ease-in-out;
+      &:hover {
+        color: $green;
+      }
     }
   }
 }

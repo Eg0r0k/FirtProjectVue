@@ -1,5 +1,5 @@
 <template>
-  <section class="collectionInfo">
+  <section class="collectionInfo" id="new">
     <div class="collectionInfo__container">
       <div class="collectionInfo__header">
         <svg
