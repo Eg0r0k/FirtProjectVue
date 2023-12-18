@@ -26,7 +26,7 @@ import Menu from "./icons/Menu.vue";
 import NavItem from "./NavItem.vue";
 import TheCart from "./TheCart.vue";
 import { useArtsStore } from "@/stores/CartStore";
-import { ref, reactive, watchEffect } from "vue";
+import { ref, reactive, watchEffect, onMounted } from "vue";
 
 const showNav = ref(false);
 const userWindowWidth = reactive({ width: window.innerWidth });

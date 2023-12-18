@@ -10,6 +10,7 @@
         </dd>
       </dl>
     </div>
+
     <CommonBtn class="itemArt__delete">
       <Trashbag class="itemArt__delete--icon" @click="artsStore.deleteFromCart(id)" />
     </CommonBtn>

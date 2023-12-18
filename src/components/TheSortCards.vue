@@ -15,7 +15,7 @@
       </nav>
     </div>
   </section>
-  <TheCards :sortedArts="artsStore.sortedArts" />
+  <TheCards :sortedArts="artsStore.sortedArts.length > 0 ? artsStore.sortedArts : artsStore.arts" />
 </template>
 
 <script setup>

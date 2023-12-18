@@ -43,6 +43,7 @@ const props = defineProps({
     required: true,
   },
 });
+
 const emits = defineEmits(["update:showCart"]);
 const closeCart = () => {
   emits("update:showCart", !props.showCart);
