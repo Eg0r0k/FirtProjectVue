@@ -11,6 +11,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Холст, масло (50х80) ",
         artUrlImage: "15",
         country: "FR",
+        quantity: 1,
       },
       {
         id: 2,
@@ -20,6 +21,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Акрил, бумага (50х80) ",
         artUrlImage: "1",
         country: "FR",
+        quantity: 1,
       },
       {
         id: 3,
@@ -29,6 +31,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Цветная литография (40х60) ",
         artUrlImage: "16",
         country: "FR",
+        quantity: 1,
       },
       {
         id: 4,
@@ -38,6 +41,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Цветная литография (40х60) ",
         artUrlImage: "8",
         country: "DE",
+        quantity: 1,
       },
       {
         id: 5,
@@ -47,6 +51,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Холст, масло (50х80) ",
         artUrlImage: "7",
         country: "DE",
+        quantity: 1,
       },
       {
         id: 6,
@@ -56,6 +61,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Цветная литография (40х60) ",
         artUrlImage: "6",
         country: "DE",
+        quantity: 1,
       },
       {
         id: 7,
@@ -65,6 +71,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Акварель, бумага (50х80) ",
         artUrlImage: "9",
         country: "ENG",
+        quantity: 1,
       },
       {
         id: 8,
@@ -74,6 +81,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Цветная литография (40х60) ",
         artUrlImage: "10",
         country: "ENG",
+        quantity: 1,
       },
       {
         id: 9,
@@ -83,6 +91,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Акварель, бумага (50х80) ",
         artUrlImage: "11",
         country: "ENG",
+        quantity: 1,
       },
       {
         id: 10,
@@ -92,6 +101,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Бумага, акрил (50х80) ",
         artUrlImage: "2",
         country: "FR",
+        quantity: 1,
       },
       {
         id: 11,
@@ -101,6 +111,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Цветная литография (40х60) ",
         artUrlImage: "18",
         country: "FR",
+        quantity: 1,
       },
       {
         id: 12,
@@ -110,6 +121,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Цветная литография (40х60) ",
         artUrlImage: "3",
         country: "FR",
+        quantity: 1,
       },
       {
         id: 13,
@@ -119,6 +131,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Цветная литография (40х60) ",
         artUrlImage: "4",
         country: "DE",
+        quantity: 1,
       },
       {
         id: 14,
@@ -128,6 +141,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Бумага, акрил (50х80) ",
         artUrlImage: "5",
         country: "DE",
+        quantity: 1,
       },
       {
         id: 15,
@@ -137,6 +151,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Бумага, акрил (50х80) ",
         artUrlImage: "17",
         country: "DE",
+        quantity: 1,
       },
       {
         id: 16,
@@ -146,6 +161,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Цветная литография (40х60) ",
         artUrlImage: "12",
         country: "ENG",
+        quantity: 1,
       },
       {
         id: 17,
@@ -155,6 +171,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Бумага, акрил (50х80) ",
         artUrlImage: "13",
         country: "ENG",
+        quantity: 1,
       },
       {
         id: 18,
@@ -164,6 +181,7 @@ export const useArtsStore = defineStore("artStore", {
         artType: "Цветная литография (40х60) ",
         artUrlImage: "14",
         country: "ENG",
+        quantity: 1,
       },
     ],
     currentCountry: null,
@@ -179,13 +197,21 @@ export const useArtsStore = defineStore("artStore", {
     },
   },
   actions: {
+ 
     setCurrentCountry({ country }) {
-      this.sortedArts = this.arts.filter(el => el.country === country);
+      if(!country ){
+        throw new Error(`У настройки нету страны полученная страна ${country}`)
+      }
+   
+        this.sortedArts = this.arts.filter(el => el.country === country);
+  
+    
     },
     addToCart(id) {
-      if (id == null || id < 0 || isNaN(id)) {
+      if (!Number.isInteger(id) || id < 0 || isNaN(id)) {
         throw new Error("Не верный id");
       }
+      
       const existingCartItem = this.сartStore.find(el => el.id === id);
       if (!existingCartItem) {
         const idx = this.arts.findIndex(el => el.id === id);
@@ -197,7 +223,7 @@ export const useArtsStore = defineStore("artStore", {
       }
     },
     deleteFromCart(id) {
-      if (id == null || id < 0 || isNaN(id)) {
+      if (!Number.isInteger(id) || id < 0 || isNaN(id)) {
         throw new Error("Не верный id");
       }
       this.сartStore = this.сartStore.filter(el => el.id !== id);

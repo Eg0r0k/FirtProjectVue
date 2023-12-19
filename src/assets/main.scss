@@ -2,7 +2,7 @@
 @import "./normalaze";
 @import "./base";
 @import "./mixins";
-
+@import "./animations";
 body {
   background-color: $body-backColor;
   min-width: 320px;
@@ -11,6 +11,7 @@ body {
   font-family: Raleway;
   box-sizing: border-box;
   overflow-x: hidden;
+  position: relative;
 }
 html {
   scroll-behavior: smooth;
@@ -21,7 +22,7 @@ img {
   max-width: 100%;
   height: auto;
   font-style: italic;
-
+  text-align: center;
   background-repeat: no-repeat;
   background-size: cover;
   shape-margin: 1rem;

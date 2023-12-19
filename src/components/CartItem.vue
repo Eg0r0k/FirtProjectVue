@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="cart__item itemArt" v-for="{ artUrlImage, artName, artAuthor, artPrice, id } in CartStore">
+  <div class="cart__item itemArt" v-for="{ artUrlImage, artName, artAuthor, artPrice, id,quantity } in CartStore">
     <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Здесь должен быть арт #${artUrlImage}`" />
     <div class="itemArt__content">
       <dl class="itemArt__about">
@@ -10,7 +10,8 @@
         </dd>
       </dl>
     </div>
-
+    <div class="itemArt__quantity quantity">
+      <button class="quantity__btn"><Plus/></button>{{quantity}} <button class="quantity__btn"><Minus/></button></div>
     <CommonBtn class="itemArt__delete">
       <Trashbag class="itemArt__delete--icon" @click="artsStore.deleteFromCart(id)" />
     </CommonBtn>
@@ -19,6 +20,8 @@
 <script setup>
 import CommonBtn from "./CommonBtn.vue";
 import Trashbag from "./icons/Trashbag.vue";
+import Plus from "./icons/Plus.vue";
+import Minus from "./icons/Minus.vue";
 import { useArtsStore } from "@/stores/CartStore";
 
 const artsStore = useArtsStore();
@@ -31,19 +34,26 @@ const props = defineProps({
 </script>
 <style scoped lang="scss">
 @import "@/assets/_base";
+
 .itemArt {
   align-items: center;
   display: flex;
 
-  width: calc(100% - 18px);
+
   background-color: $white;
   padding: 9px;
+
   &__delete {
     margin-left: auto;
+
     &--icon {
       width: 35px;
       height: 35px;
     }
+  }
+
+  &__test {
+    margin-left: auto;
   }
 
   &__name {
@@ -52,22 +62,71 @@ const props = defineProps({
     margin-bottom: 10px;
     font-weight: 500;
   }
+
   &__price {
     font-weight: 500;
+    white-space: nowrap;
   }
+
   &__content {
     margin-left: 9px;
   }
+
   &__author {
     font-weight: 500;
     margin-bottom: 10px;
     font-size: 16px;
     color: $gray_green;
   }
+
   & img {
     aspect-ratio: 1/1;
     width: 120px;
-    min-width: 100px;
+    min-width: 50px;
   }
+  
 }
+.quantity
+{
+  padding-left: 5px;
+  margin-left: auto;
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  &__btn 
+  {
+   
+    padding: 0;
+   background-color:$green;
+   border-radius:50%;
+    height: 30px;
+    width: 30px;
+   border: none;
+   transition: 0;
+   transition: $transition-duration;
+   & svg 
+   {
+     fill:$white;
+     
+   }
+   &:active
+   {
+    background-color:$white;
+    box-shadow: 0 0 0 1px $green;
+    & svg 
+    {
+      fill:$green;
+    }
+   }
+  }
+
+}
+@media screen and (max-width:370px) {
+  .itemArt__price
+  {
+    font-size: 12px;
+  }
+ 
+}
+
 </style>

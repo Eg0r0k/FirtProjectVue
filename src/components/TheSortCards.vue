@@ -33,7 +33,7 @@ const props = defineProps({
   },
 });
 
-const selectedCountry = ref(null);
+const selectedCountry = ref("");
 const isActiveButton = ref(null);
 
 const selectCountry = setting => {

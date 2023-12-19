@@ -87,6 +87,7 @@ const isArtCollectionEmpty = computed(() => props.sortedArts.length === 0);
   }
   &__picture {
     margin-bottom: 20px;
+    min-height: 390px;
   }
   &__price-art {
     margin-bottom: 20px;

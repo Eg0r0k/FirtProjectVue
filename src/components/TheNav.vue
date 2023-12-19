@@ -15,7 +15,8 @@
       <span class="nav__cart--inCart"> {{ artsStore.totalInCart }} </span>
     </CommonBtn>
   </nav>
-  <Transition name="slide-fade">
+  <Transition name="slide-left">
+    
     <TheCart v-if="showCart" :showCart="showCart" @update:showCart="updateShowCart" />
   </Transition>
 </template>
@@ -26,13 +27,17 @@ import Menu from "./icons/Menu.vue";
 import NavItem from "./NavItem.vue";
 import TheCart from "./TheCart.vue";
 import { useArtsStore } from "@/stores/CartStore";
-import { ref, reactive, watchEffect, onMounted } from "vue";
+import { ref, reactive, watchEffect } from "vue";
 
 const showNav = ref(false);
 const userWindowWidth = reactive({ width: window.innerWidth });
 const showCart = ref(false);
 
 const artsStore = useArtsStore();
+
+
+
+
 
 const toggleCart = () => {
   showCart.value = !showCart.value;
@@ -80,6 +85,8 @@ const navItems = ref([
       border-radius: 50%;
       width: 20px;
       height: 20px;
+      font-weight: 700;
+      
       font-size: 16px;
       text-align: center;
       color: $white;
@@ -156,18 +163,7 @@ const navItems = ref([
     }
   }
 }
-.slide-fade-enter-active {
-  transition: all 0.4s ease-out;
-}
 
-.slide-fade-leave-active {
-  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
-}
 
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateY(-20px);
 
-  opacity: 0;
-}
 </style>
