@@ -1,23 +1,22 @@
 <template lang="">
   <nav class="header__nav nav">
-    <CommonBtn class="nav__burger" @click="toggleNav">
+    <CommonBtn class="nav__burger" @click="toggleNavVisibility">
       <Menu />
     </CommonBtn>
     <Transition name="slide-fade">
-      <ul class="nav__menu" v-if="showNav">
+      <ul class="nav__menu" v-if="isNavVisible">
         <NavItem v-for="item in navItems" :key="item.id">
-          <a @click="toggleNav" :href="`#${item.link}`"> {{ item.text }}</a>
+          <a @click="toggleNavVisibility" :href="`#${item.link}`"> {{ item.text }}</a>
         </NavItem>
       </ul>
     </Transition>
-    <CommonBtn class="nav__cart" @click="toggleCart">
+    <CommonBtn class="nav__cart" @click="toggleCartVisibility">
       <Cart class="nav__cart--icon" />
       <span class="nav__cart--inCart"> {{ artsStore.totalInCart }} </span>
     </CommonBtn>
   </nav>
   <Transition name="slide-left">
-    
-    <TheCart v-if="showCart" :showCart="showCart" @update:showCart="updateShowCart" />
+    <TheCart v-if="isCartVisible" :showCart="isCartVisible" @update:showCart="toggleCartVisibility" />
   </Transition>
 </template>
 <script setup>
@@ -29,38 +28,25 @@ import TheCart from "./TheCart.vue";
 import { useArtsStore } from "@/stores/CartStore";
 import { ref, reactive, watchEffect } from "vue";
 
-const showNav = ref(false);
+const isNavVisible = ref(false);
 const userWindowWidth = reactive({ width: window.innerWidth });
-const showCart = ref(false);
-
+const isCartVisible = ref(false);
 const artsStore = useArtsStore();
-
-
-
-
-
-const toggleCart = () => {
-  showCart.value = !showCart.value;
-};
-const toggleNav = () => {
-  showNav.value = !showNav.value;
+const toggleNavVisibility = () => {
+  isNavVisible.value = !isNavVisible.value;
   if (userWindowWidth.width > 450) {
-    showNav.value = true;
+    isNavVisible.value = true;
   }
 };
-
+const toggleCartVisibility = () => {
+  isCartVisible.value = !isCartVisible.value;
+};
 watchEffect(() => {
-  showNav.value = userWindowWidth.width > 450;
+  isNavVisible.value = userWindowWidth.width > 450;
 });
-
 const handleResize = () => {
   userWindowWidth.width = window.innerWidth;
 };
-
-const updateShowCart = value => {
-  showCart.value = value;
-};
-
 window.addEventListener("resize", handleResize);
 
 const navItems = ref([
@@ -86,7 +72,7 @@ const navItems = ref([
       width: 20px;
       height: 20px;
       font-weight: 700;
-      
+
       font-size: 16px;
       text-align: center;
       color: $white;
@@ -163,7 +149,4 @@ const navItems = ref([
     }
   }
 }
-
-
-
 </style>

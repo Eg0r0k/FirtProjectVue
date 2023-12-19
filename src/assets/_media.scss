@@ -3,7 +3,7 @@
 //       width: 100%;
 //       padding: 17px 15px;
 //       background-color: $ligth-green;
-  
+
 //       &::before {
 //         content: "";
 //         display: block;
@@ -15,24 +15,24 @@
 //         left: 0;
 //         right: 0;
 //       }
-  
+
 //       &__cart {
 //         margin-left: auto;
 //       }
-  
+
 //       &__menu {
 //         margin-right: 5px !important;
 //       }
 //     }
-  
+
 //     .main {
 //       margin-top: 60px;
-  
+
 //       &__img {
 //         display: none;
 //       }
 //     }
-  
+
 //     .header {
 //       background-color: $ligth-green;
 //       padding: 33px 0;
@@ -41,42 +41,42 @@
 //       top: 0;
 //       right: 0;
 //       z-index: $header-z;
-  
+
 //       &__brand {
 //         margin: 0 auto 16px;
 //       }
-  
+
 //       &__container {
 //         flex-wrap: wrap;
 //         padding: 0;
 //       }
-  
+
 //       padding-top: 22px;
 //       padding-bottom: 0;
 //       background-color: $white;
 //     }
 //   }
-  
+
 //   @media screen and (max-width: 576px) {
 //     .main__img {
 //       display: none;
 //     }
-  
+
 //     .main {
 //       margin-top: 60px;
 //     }
-  
+
 //     .collectionInfo {
 //       &__text {
 //         margin-bottom: 20px;
 //       }
 //     }
-  
+
 //     .card {
 //       max-width: 240px;
 //     }
 //   }
-  
+
 //   @media screen and (max-width: 450px) {
 //     .nav {
 //       &__menu {
@@ -91,19 +91,19 @@
 //         z-index: 100;
 //         height: 100vh;
 //       }
-  
+
 //       &__burger {
 //         display: inline-block;
 //       }
 //     }
-  
+
 //     .sort {
 //       &__settings {
 //         overflow-x: scroll;
 //       }
 //     }
 //   }
-  
+
 //   @media screen and (max-width: 488px) {
 //     .footer {
 //       &__nav {
@@ -111,7 +111,7 @@
 //       }
 //     }
 //   }
-  
+
 //   @media screen and (max-width: $tablet-breakpoint) {
 //     .footer {
 //       &__container {
@@ -119,38 +119,38 @@
 //         gap: 30px;
 //       }
 //     }
-  
+
 //     .contacts {
 //       flex-direction: row;
 //       margin-right: 0;
 //     }
 //   }
-  
+
 //   @media screen and (max-width: $notebook-breakpoint) {
 //     .footer {
 //       &__wrapper {
 //         flex-wrap: wrap;
 //       }
-  
+
 //       &__nav {
 //         width: 100%;
 //         justify-content: space-between;
 //       }
-  
+
 //       &__media {
 //         width: 100%;
 //       }
-  
+
 //       &__INK {
 //         justify-content: center;
 //         display: flex;
 //         flex-direction: row;
 //       }
-  
+
 //       &__media {
 //         position: relative;
 //         margin-top: 32px;
-  
+
 //         &:before {
 //           content: "";
 //           display: block;
@@ -165,30 +165,30 @@
 //       }
 //     }
 //   }
-  
+
 //   @media screen and (max-width: 320px) {
 //     .collectionInfo {
 //       &__text {
 //         margin-bottom: 30px;
 //       }
-  
+
 //       &__btn {
 //         width: 100%;
 //       }
 //     }
-  
+
 //     .card {
 //       max-width: 290px;
 //     }
 //   }
-  
+
 //   @media screen and (max-width: 578px) {
 //     .cart {
 //       left: 0;
 //       width: 100%;
 //     }
 //   }
-  
+
 //   @media screen and (max-width: $small-tablet-breakpoint) {
 //     .collectionInfo {
 //       &__text {
@@ -196,9 +196,8 @@
 //         margin-bottom: 30px;
 //       }
 //     }
-  
+
 //     .card {
 //       max-width: 330px;
 //     }
 //   }
-  

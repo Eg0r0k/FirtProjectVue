@@ -9,7 +9,7 @@
         v-else
       >
         <div class="card__picture">
-          <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина: ${artName}`" />
+          <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина: ${artName}`" loading="lazy" />
         </div>
         <div class="card__content">
           <div class="card__info">
@@ -42,10 +42,6 @@ const props = defineProps({
     default: () => [],
   },
 });
-
-const test = id => {
-  console.log(id);
-};
 
 const checkArtCollection = () => {
   isArtCollectionEmpty.value = props.sortedArts.length === 0;

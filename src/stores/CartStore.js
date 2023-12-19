@@ -197,21 +197,18 @@ export const useArtsStore = defineStore("artStore", {
     },
   },
   actions: {
- 
     setCurrentCountry({ country }) {
-      if(!country ){
-        throw new Error(`У настройки нету страны полученная страна ${country}`)
+      if (!country) {
+        throw new Error(`У настройки нету страны полученная страна ${country}`);
       }
-   
-        this.sortedArts = this.arts.filter(el => el.country === country);
-  
-    
+
+      this.sortedArts = this.arts.filter(el => el.country === country);
     },
     addToCart(id) {
       if (!Number.isInteger(id) || id < 0 || isNaN(id)) {
         throw new Error("Не верный id");
       }
-      
+
       const existingCartItem = this.сartStore.find(el => el.id === id);
       if (!existingCartItem) {
         const idx = this.arts.findIndex(el => el.id === id);

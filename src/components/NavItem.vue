@@ -5,5 +5,3 @@
     </a>
   </li>
 </template>
-<script setup></script>
-<style lang=""></style>

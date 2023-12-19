@@ -1,11 +1,10 @@
 <template>
   <div class="cart__wrapper">
-    <div class="cart__background" @click="closeCart"></div>
+    <div class="cart__background" @click.stop="closeCart"></div>
     <section class="cart">
-
       <div class="cart__container">
         <div class="cart__header">
-          <CommonBtn class="" @click="closeCart">
+          <CommonBtn class="" @click.stop="closeCart">
             <Xmark />
           </CommonBtn>
 
@@ -27,9 +26,7 @@
           </div>
           <CommonBtn class="btn--fill cart__footer--btn"> Оформить заказ </CommonBtn>
         </div>
-
       </div>
-
     </section>
   </div>
 </template>
@@ -58,8 +55,6 @@ const closeCart = () => {
 <style scoped lang="scss">
 @import "@/assets/_base";
 
-
-
 .cart {
   position: absolute;
   z-index: $cart-z;
@@ -67,15 +62,14 @@ const closeCart = () => {
   top: 0;
   min-width: 40%;
   background-color: $ligth_green;
-&__wrapper 
-{
-  position: absolute;
-  right: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  top: 0;
-}
+  &__wrapper {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
   &__background {
     position: fixed;
     left: 0;
@@ -85,7 +79,7 @@ const closeCart = () => {
     width: 100%;
     min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.329);
-    z-index: $cart-z ; // Adjust the z-index here
+    z-index: $cart-z; // Adjust the z-index here
   }
 
   &__header {
@@ -140,7 +134,7 @@ const closeCart = () => {
     align-items: center;
     overflow-y: auto;
     min-height: 300px;
-
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 9px;
