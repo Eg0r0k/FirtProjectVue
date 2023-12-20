@@ -190,10 +190,10 @@ export const useArtsStore = defineStore("artStore", {
   }),
   getters: {
     totalPrice() {
-      return this.сartStore.reduce((total, item) => total + item.artPrice, 0);
+      return this.сartStore.reduce((total, item) => total + item.artPrice * item.quantity, 0);
     },
     totalInCart() {
-      return this.сartStore.length;
+      return this.сartStore.reduce((total, item) => total + item.quantity, 0);
     },
   },
   actions: {
@@ -210,10 +210,12 @@ export const useArtsStore = defineStore("artStore", {
       }
 
       const existingCartItem = this.сartStore.find(el => el.id === id);
-      if (!existingCartItem) {
+      if (existingCartItem) {
+        existingCartItem.quantity += 1;
+      } else {
         const idx = this.arts.findIndex(el => el.id === id);
         if (idx !== -1) {
-          this.сartStore.push(this.arts[idx]);
+          this.сartStore.push({ ...this.arts[idx], quantity: 1 });
         } else {
           throw new Error(`Элемент с этим id ${id} не был найден в this.arts`);
         }
@@ -223,7 +225,11 @@ export const useArtsStore = defineStore("artStore", {
       if (!Number.isInteger(id) || id < 0 || isNaN(id)) {
         throw new Error("Не верный id");
       }
-      this.сartStore = this.сartStore.filter(el => el.id !== id);
+      const cartItemIndex = this.сartStore.findIndex(el => el.id === id);
+      if (cartItemIndex !== -1) {
+        this.сartStore[cartItemIndex].quantity = 0;
+        this.сartStore.splice(cartItemIndex, 1);
+      }
     },
   },
 });

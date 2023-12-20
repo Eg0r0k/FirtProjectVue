@@ -1,10 +1,10 @@
 <template>
   <div class="cart__wrapper">
-    <div class="cart__background" @click.stop="closeCart"></div>
+    <div class="cart__background" @click="closeCart"></div>
     <section class="cart">
       <div class="cart__container">
         <div class="cart__header">
-          <CommonBtn class="" @click.stop="closeCart">
+          <CommonBtn class="" @click="closeCart">
             <Xmark />
           </CommonBtn>
 
@@ -131,7 +131,6 @@ const closeCart = () => {
   }
 
   &__content {
-    align-items: center;
     overflow-y: auto;
     min-height: 300px;
     width: 100%;
@@ -141,6 +140,7 @@ const closeCart = () => {
   }
 
   &__empty {
+    align-self: center;
     margin: auto 0;
   }
 }
