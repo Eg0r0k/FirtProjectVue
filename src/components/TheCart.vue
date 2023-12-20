@@ -137,17 +137,18 @@ const closeCart = () => {
   }
 
   &__content {
-    align-items: center;
+  
     overflow-y: auto;
     min-height: 300px;
-
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 9px;
   }
 
   &__empty {
-    margin: auto 0;
+    align-self: center;
+  margin: auto 0;
   }
 }
 

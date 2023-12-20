@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import SettingBtn from "./SettingBtn.vue";
+import SettingBtn from "./settingBtn.vue";
 import TheCards from "./TheCards.vue";
 import { ref } from "vue";
 import { useArtsStore } from "@/stores/CartStore";

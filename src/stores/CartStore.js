@@ -186,18 +186,23 @@ export const useArtsStore = defineStore("artStore", {
     ],
     currentCountry: null,
     sortedArts: [],
-    сartStore: [],
+    сartStore: [
+      
+    ],
+
   }),
   getters: {
     totalPrice() {
-      return this.сartStore.reduce((total, item) => total + item.artPrice, 0);
+      return this.сartStore.reduce((total, item) => total + item.artPrice * item.quantity, 0);
     },
     totalInCart() {
+     
       return this.сartStore.length;
     },
+  
   },
   actions: {
- 
+
     setCurrentCountry({ country }) {
       if(!country ){
         throw new Error(`У настройки нету страны полученная страна ${country}`)
@@ -207,26 +212,53 @@ export const useArtsStore = defineStore("artStore", {
   
     
     },
+    minusFromCart(id)
+    {
+      const idx = this.arts.findIndex(el => el.id === id);
+      if(this.arts[idx].quantity > 1)
+      {
+        this.arts[idx].quantity--
+      }
+      else 
+      {
+        this.deleteFromCart(id)
+      }
+    },
     addToCart(id) {
+    
       if (!Number.isInteger(id) || id < 0 || isNaN(id)) {
         throw new Error("Не верный id");
       }
-      
+     
+
       const existingCartItem = this.сartStore.find(el => el.id === id);
+      const idx = this.arts.findIndex(el => el.id === id);
       if (!existingCartItem) {
-        const idx = this.arts.findIndex(el => el.id === id);
+     
         if (idx !== -1) {
+    
           this.сartStore.push(this.arts[idx]);
+          
         } else {
           throw new Error(`Элемент с этим id ${id} не был найден в this.arts`);
         }
       }
+      else 
+      {
+         this.arts[idx].quantity++
+      }
+ 
+
     },
     deleteFromCart(id) {
       if (!Number.isInteger(id) || id < 0 || isNaN(id)) {
         throw new Error("Не верный id");
       }
+      const idx = this.arts.findIndex(el => el.id === id);
+      this.arts[id-1].quantity = 1
       this.сartStore = this.сartStore.filter(el => el.id !== id);
     },
   },
 });
+
+

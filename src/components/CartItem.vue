@@ -1,6 +1,6 @@
 <template lang="">
   <div class="cart__item itemArt" v-for="{ artUrlImage, artName, artAuthor, artPrice, id,quantity } in CartStore">
-    <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Здесь должен быть арт #${artUrlImage}`" />
+    <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина ${artName}`" />
     <div class="itemArt__content">
       <dl class="itemArt__about">
         <dt class="itemArt__name">{{ artName }}</dt>
@@ -11,7 +11,7 @@
       </dl>
     </div>
     <div class="itemArt__quantity quantity">
-      <button class="quantity__btn"><Plus/></button>{{quantity}} <button class="quantity__btn"><Minus/></button></div>
+      <button class="quantity__btn" @click="artsStore.minusFromCart(id)"><Minus/></button>{{quantity}} <button class="quantity__btn" @click="artsStore.addToCart(id)"><Plus/></button></div>
     <CommonBtn class="itemArt__delete">
       <Trashbag class="itemArt__delete--icon" @click="artsStore.deleteFromCart(id)" />
     </CommonBtn>
@@ -44,7 +44,7 @@ const props = defineProps({
   padding: 9px;
 
   &__delete {
-    margin-left: auto;
+    margin-left: 10px;
 
     &--icon {
       width: 35px;
@@ -52,10 +52,11 @@ const props = defineProps({
     }
   }
 
-  &__test {
-    margin-left: auto;
+ 
+  &__about 
+  {
+    max-width: 125px;
   }
-
   &__name {
     color: $black;
     font-size: 20px;
@@ -88,14 +89,15 @@ const props = defineProps({
 }
 .quantity
 {
-  padding-left: 5px;
-  margin-left: auto;
+  margin: 0 auto;
   display:flex;
   gap: 10px;
   align-items:center;
   &__btn 
   {
-   
+display: flex;
+justify-content: center;
+align-items: center;
     padding: 0;
    background-color:$green;
    border-radius:50%;
@@ -122,11 +124,25 @@ const props = defineProps({
 
 }
 @media screen and (max-width:370px) {
-  .itemArt__price
+  .itemArt
   {
-    font-size: 12px;
-  }
+    flex-direction: column;
  
+    gap: 10px;
+    &__delete
+    {
+      margin-left: auto;
+    }
+    &__about
+    {
+      max-width: 100%;
+    }
+  }
+  .quantity
+  {
+    margin-left: auto;
+    margin-right: 0;
+  }
 }
 
 </style>
