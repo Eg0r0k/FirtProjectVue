@@ -1,13 +1,16 @@
 <template>
+ 
   <TheHeader />
   <TheMain />
   <TheSortCards :settings="settings" />
   <TheCollectionInfo />
   <TheUsCommand />
   <TheFooter />
+  <router-view></router-view>
 </template>
 
 <script setup>
+import ContentCard from "./components/ContentCard.vue";
 import "animate.css";
 import { ref } from "vue";
 import TheHeader from "./components/TheHeader.vue";

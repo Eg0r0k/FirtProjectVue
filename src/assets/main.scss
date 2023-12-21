@@ -10,12 +10,14 @@ body {
   font-size: 20px;
   font-family: Raleway;
   box-sizing: border-box;
-  overflow-x: hidden;
+ 
   position: relative;
 }
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 200px;
+
 }
 img {
   display: block;
