@@ -35,7 +35,7 @@ import Cart from "./icons/Cart.vue";
 import CommonBtn from "./CommonBtn.vue";
 import Xmark from "./icons/Xmark.vue";
 import Trashbag from "./icons/Trashbag.vue";
-import CartItem from "./CartItem.vue";
+import CartItem from "@/components/CartItem.vue";
 import { useArtsStore } from "@/stores/CartStore";
 
 const artsStore = useArtsStore();

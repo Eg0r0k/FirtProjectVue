@@ -8,7 +8,7 @@
         <NavItem v-for="item in navItems" :key="item.id">
           <a @click="toggleNavVisibility" :href="`#${item.link}`"> {{ item.text }}</a>
         </NavItem>
-        <router-link to="/test">test</router-link>
+     
       
       </ul>
     </Transition>

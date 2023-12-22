@@ -36,7 +36,7 @@
   </section>
 </template>
 <script setup>
-import CommonBtn from "./CommonBtn.vue";
+import CommonBtn from "@/components/CommonBtn.vue";
 </script>
 <style scoped lang="scss">
 @import "@/assets/_base";

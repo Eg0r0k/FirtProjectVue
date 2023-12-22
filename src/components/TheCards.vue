@@ -9,7 +9,10 @@
         v-else
       >
         <div class="card__picture">
-          <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина: ${artName}`" loading="lazy" />
+          <router-link :to="`/about/${id}`"> 
+            <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина: ${artName}`" loading="lazy" />
+          </router-link>
+      
         </div>
         <div class="card__content">
           <div class="card__info">

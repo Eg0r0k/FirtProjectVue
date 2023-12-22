@@ -1,36 +1,29 @@
 <template>
-    <div class="contentCard">
+    <div class="contentCard" >
         <div class="contentCard__header">
-            <a href="">К картинам
-                <ArrowRigth />
-            </a>
+       <router-link to="/#reproduction"   class="contentCard__close"><Xmark/></router-link>
         </div>
         <div class="contentCard__container">
             <div class="contentCard__picture">
-                <img src="/img/paint_1.jpg" alt="" class="contentCard__img" />
+                <img :src="`/img/paint_${artInfo.artUrlImage}.jpg`" alt="" class="contentCard__img" />
             </div>
             <div class="contentCard__info">
                 <dl class="contentCard__discriptionList discriptionList">
-                    <dt class="discriptionList__artName">Дама с собачкой</dt>
-                    <dd class="discriptionList__author">Анри Селин</dd>
+                    <dt class="discriptionList__artName">{{artInfo.artName}}</dt>
+                    <dd class="discriptionList__author">{{artInfo.artAuthor}}</dd>
 
                     <CommonBtn class="btn--outline discriptionList__btn"> В корзину</CommonBtn>
 
                     <dt class="discriptionList__info informationList">Информация </dt>
                     <dd class="informationList__discription">
                         <ul class="informationList__list">
-                            <li class="informationList__item">Тип: Акрил, бумага (50х80) </li>
+                            <li class="informationList__item">Тип: {{ artInfo.artType }} </li>
                             <li class="informationList__item">Доставка: Бесплатная</li>
                         </ul>
                     </dd>
                     <dt class="discriptionList__discription--title">Описание</dt>
                     <dd class="discriptionList__discription--about">
-                        "Репродукция 'Дама с собачкой' от известного художника Анри Селина — воплощение изыска и
-                        элегантности. Это произведение искусства, выполненное акрилом на бумаге, призвано внести атмосферу
-                        стиля и тепла в ваш интерьер. Размеры (50х80 см) позволяют полностью погрузиться в детали этого
-                        удивительного произведения. Картина подчеркнет ваш вкус и станет изысканным украшением для любого
-                        помещения. Цена этой репродукции составляет 16 500 рублей, предоставляя отличную возможность
-                        обогатить ваш дом уникальным произведением искусства."
+                       {{ artInfo.artDiscription }}
                     </dd>
                 </dl>
             </div>
@@ -38,11 +31,28 @@
     </div>
 </template>
 <script setup>
+import { computed, getCurrentInstance, ref } from "vue";
 import ArrowRigth from "./icons/Arrow-rigth.vue";
 import CommonBtn from "./CommonBtn.vue";
+import Xmark from "./icons/Xmark.vue";
+import { useArtsStore } from "@/stores/CartStore";
+const artsStore = useArtsStore();
+const instance = getCurrentInstance();
+const id = computed(()=>
+{
+    return instance.proxy.$route.params.id;
+})
+const artItem = computed(() => {
+    const itemId = Number(id.value);
+    return artsStore.arts.find(item => item.id === itemId);
+});
+const artInfo = ref(artItem.value)
 
+const goBack = () => {
+  router.back();
+};
 </script>
-<style lang="scss" scoped >
+<style lang="scss">
 @import "@/assets/_base.scss";
 
 
@@ -50,16 +60,16 @@ import CommonBtn from "./CommonBtn.vue";
 .contentCard {
     display: block;
     font-weight: 500;
-    position:fixed;
+ 
     left: 0;
     top: 0;
     bottom: 0;
+    overflow: hidden;
     height: fit-content;
     min-height: 100vh;
     background-color: $white;
     z-index: 102;
     width: 100%;
-
     &__container {
         display: flex;
         height: 100%;
@@ -74,6 +84,8 @@ import CommonBtn from "./CommonBtn.vue";
     }
     &__header 
     {
+        display: flex;
+        justify-content: flex-end;
         max-width: 1350px;
         padding: 30px 15px;
         margin: 0 auto;
