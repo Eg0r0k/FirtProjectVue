@@ -1,8 +1,5 @@
 <template lang="">
-  <transition-group name="fade-cart" tag="div">
-  
-
-  <div class="cart__item itemArt" v-for="{ artUrlImage, artName, artAuthor, artPrice, id, quantity } in CartStore" :key="id">
+  <div class="cart__item itemArt" v-for="{ artUrlImage, artName, artAuthor, artPrice, id, quantity } in CartStore">
     <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина ${artName}`" />
     <div class="itemArt__content">
       <dl class="itemArt__about">
@@ -21,9 +18,6 @@
       <Trashbag class="itemArt__delete--icon" @click="artsStore.deleteFromCart(id)" />
     </CommonBtn>
   </div>
-
-
-</transition-group>
 </template>
 <script setup>
 import CommonBtn from "./CommonBtn.vue";
@@ -58,7 +52,7 @@ const decrementQuantity = id => {
 </script>
 <style scoped lang="scss">
 @import "@/assets/_base";
-@import "@/assets/main";
+
 .itemArt {
   align-items: center;
   display: flex;

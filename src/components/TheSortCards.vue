@@ -1,5 +1,5 @@
 <template>
-  <section class="sort" id="sort">
+  <section class="sort">
     <div class="sort__container">
       <h2 class="sort__title">Репродукции</h2>
       <nav class="sort__settings">
@@ -57,13 +57,7 @@ const isActive = setting => {
     flex-wrap: wrap;
     gap: 20px;
   }
-  &__title
-  {
-    font-size:clamp(1.5rem, 1.214rem + 1.429vw, 2.5rem);
-    color:$black;
- 
-    font-weight: 500;
-  }
+
   .current {
     background-color: $green;
     color: $white;

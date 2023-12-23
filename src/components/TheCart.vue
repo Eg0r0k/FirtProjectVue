@@ -16,9 +16,8 @@
         </div>
         <div class="cart__content">
           <div class="cart__empty" v-if="artsStore.totalInCart === 0">В вашей корзине пусто 😉</div>
-        
-          <CartItem :CartStore="artsStore.сartStore" />
-        
+
+          <CartItem :CartStore="artsStore.сartStore" v-else />
         </div>
         <div class="cart__footer">
           <div class="cart__offer">
@@ -55,6 +54,7 @@ const closeCart = () => {
 </script>
 <style scoped lang="scss">
 @import "@/assets/_base";
+
 .cart {
   position: absolute;
   z-index: $cart-z;
@@ -62,7 +62,6 @@ const closeCart = () => {
   top: 0;
   min-width: 40%;
   background-color: $ligth_green;
-
   &__wrapper {
     position: absolute;
     right: 0;
@@ -71,7 +70,6 @@ const closeCart = () => {
     height: 100%;
     top: 0;
   }
-
   &__background {
     position: fixed;
     left: 0;

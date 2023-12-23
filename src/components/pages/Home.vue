@@ -1,12 +1,12 @@
 <template>
-  <div>
+<div>
     <TheHeader />
     <TheMain />
     <TheSortCards :settings="settings" />
     <TheCollectionInfo />
     <TheUsCommand />
     <TheFooter />
-  </div>
+</div>
 </template>
 <script setup>
 import ContentCard from "@/components/ContentCard.vue";
