@@ -15,9 +15,10 @@
           </div>
         </div>
         <div class="cart__content">
-          <div class="cart__empty" v-if="artsStore.totalInCart === 0">В вашей корзине пусто 😉</div>
+          
+          <div class="cart__empty"  v-if="artsStore.totalInCart === 0">В вашей корзине пусто 😉</div>
+          <CartItem :CartStore="artsStore.сartStore"  v-else/>
 
-          <CartItem :CartStore="artsStore.сartStore" v-else />
         </div>
         <div class="cart__footer">
           <div class="cart__offer">
@@ -62,6 +63,7 @@ const closeCart = () => {
   top: 0;
   min-width: 40%;
   background-color: $ligth_green;
+
   &__wrapper {
     position: absolute;
     right: 0;
@@ -70,6 +72,7 @@ const closeCart = () => {
     height: 100%;
     top: 0;
   }
+
   &__background {
     position: fixed;
     left: 0;
@@ -131,17 +134,35 @@ const closeCart = () => {
   }
 
   &__content {
-    overflow-y: auto;
-    min-height: 300px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    height: 100%;
+    width:100;
+    &::-webkit-scrollbar {
+      width: 7px;            
+    }
+    &::-webkit-scrollbar-track {
+      background:$ligth_green;       
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $green;   
+      border-radius: 20px; 
+
+     
+    }
+  //display: flex;
+  //justify-content: center;
+  //flex-direction: column;
+  //gap: 9px;
   }
 
   &__empty {
     align-self: center;
     margin: auto 0;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
   }
 }
 

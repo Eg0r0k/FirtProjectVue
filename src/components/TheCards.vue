@@ -7,12 +7,12 @@
         v-for="{ artName, artAuthor, artPrice, artType, artUrlImage, id } of sortedArts"
         :key="id"
         v-else
+        :id="`art-${id}`"
       >
         <div class="card__picture">
-          <router-link :to="`/about/${id}`"> 
+          <router-link :to="`/about/${id}`">
             <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина: ${artName}`" loading="lazy" />
           </router-link>
-      
         </div>
         <div class="card__content">
           <div class="card__info">

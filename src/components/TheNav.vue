@@ -6,22 +6,18 @@
     <Transition name="slide-fade">
       <ul class="nav__menu" v-if="isNavVisible">
         <NavItem v-for="item in navItems" :key="item.id">
-          <a @click="toggleNavVisibility" :href="`#${item.link}`"> {{ item.text }}</a>
+          <router-link @click="toggleNavVisibility" :to="`/#${item.link}`"> {{ item.text }}</router-link >
         </NavItem>
-     
-      
       </ul>
     </Transition>
     <CommonBtn class="nav__cart" @click="toggleCartVisibility">
       <Cart class="nav__cart--icon" />
       <span class="nav__cart--inCart"> {{ artsStore.totalInCart }} </span>
-    
     </CommonBtn>
   </nav>
   <Transition name="slide-left">
     <TheCart v-if="isCartVisible" :showCart="isCartVisible" @update:showCart="toggleCartVisibility" />
   </Transition>
-  
 </template>
 <script setup>
 import Cart from "./icons/Cart.vue";

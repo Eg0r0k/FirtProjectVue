@@ -4,7 +4,7 @@ const config = {
   useTabs: false,
   singleQuote: false,
   jsxSingleQuote: false,
-  arrowParens: "avoid",
+  arrowParens: "always",
   semi: true,
   endOfLine: "lf",
   bracketSpacing: true,
