@@ -25,6 +25,7 @@ import CommonBtn from "./CommonBtn.vue";
 import Menu from "./icons/Menu.vue";
 import NavItem from "./NavItem.vue";
 import TheCart from "./TheCart.vue";
+import { NAV_ITEMS } from "@/constants";
 import { useArtsStore } from "@/stores/CartStore";
 import { ref, reactive, watchEffect } from "vue";
 
@@ -49,11 +50,7 @@ const handleResize = () => {
 };
 window.addEventListener("resize", handleResize);
 
-const navItems = ref([
-  { id: 1, text: "Репродукции", link: "reproduction" },
-  { id: 2, text: "Новинки", link: "new" },
-  { id: 3, text: "О нас", link: "about" },
-]);
+const navItems = reactive(NAV_ITEMS);
 </script>
 <style scoped lang="scss">
 @import "@/assets/main.scss";
