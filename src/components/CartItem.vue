@@ -109,6 +109,7 @@ const decrementQuantity = (id) => {
   }
 }
 .quantity {
+  max-width: 95px;
   margin: 0 auto;
   display: flex;
   gap: 10px;

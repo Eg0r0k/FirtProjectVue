@@ -8,10 +8,10 @@
         <div class="card__picture" role="img">
           <router-link :to="`/about/${id}`">
             
-            <picture role="img" aria-label="Картина: {{ artName }}">
+            <picture  aria-label="Картина: {{ artName }}">
               <source :srcset="`/img/webp/paint_${artUrlImage}.webp`" type="image/webp" media="(max-width:726px) ">
               <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина: ${artName}`" loading="lazy" decoding="auto"
-                width="310" height="422" />
+                width="435" height="422" />
             </picture>
           </router-link>
         </div>

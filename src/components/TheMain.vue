@@ -1,5 +1,5 @@
 <template lang="">
-  <section class="main">
+  <main class="main">
     <div class="main__container">
       <picture>
         <source srcset="/img/webp/Main1.webp" type="image/webp" media="(max-width: 1024px)" width="540" height="621">
@@ -7,7 +7,7 @@
       </picture>
       <TheMainContent />
     </div>
-  </section>
+  </main>
 </template>
 <script setup>
 import TheMainContent from "./TheMainContent.vue";

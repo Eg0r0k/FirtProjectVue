@@ -42,7 +42,7 @@ const router = createRouter({
     }
     else 
     {
-      return {top:200}
+      return {top:0}
     }
   },
 });
