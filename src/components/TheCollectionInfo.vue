@@ -42,7 +42,7 @@ import CommonBtn from "@/components/CommonBtn.vue";
 @import "@/assets/_base";
 
 .collectionInfo {
-  background-image: url("/img/pic_background.png");
+  background-image: url("/img/pic_background.jpg");
   background-position: left;
   background-size: cover;
   background-repeat: no-repeat;

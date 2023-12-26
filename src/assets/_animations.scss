@@ -34,7 +34,7 @@
   }
 }
 
-.fade-cart-move, 
+.fade-cart-move,
 .fade-cart-enter-active,
 .fade-cart-leave-active {
   transition: all 0.5s ease;
@@ -43,7 +43,6 @@
 .fade-cart-enter-from,
 .fade-cart-leave-to {
   opacity: 0;
-
 }
 
 .fade-cart-leave-active {
@@ -52,5 +51,5 @@
   left: 0;
   right: 0;
 
-  z-index: 99 ;
+  z-index: 99;
 }

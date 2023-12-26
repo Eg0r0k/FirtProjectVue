@@ -19,9 +19,9 @@
 </template>
 
 <script setup>
-import SettingBtn from "./SettingBtn.vue";
+import SettingBtn from "./settingBtn.vue";
 import TheCards from "./TheCards.vue";
-import { ref,computed } from "vue";
+import { ref, computed } from "vue";
 import { useArtsStore } from "@/stores/CartStore";
 
 const artsStore = useArtsStore();
@@ -36,7 +36,7 @@ const props = defineProps({
 const selectedCountry = ref("");
 const isActiveButton = ref(null);
 
-const selectCountry = setting => {
+const selectCountry = (setting) => {
   selectedCountry.value = setting.country;
   isActiveButton.value = setting;
   artsStore.setCurrentCountry(setting);
@@ -57,11 +57,10 @@ const isActive = (setting) => {
     flex-wrap: wrap;
     gap: 20px;
   }
-  &__title
-  {
-    font-size:clamp(1.5rem, 1.214rem + 1.429vw, 2.5rem);
-    color:$black;
- 
+  &__title {
+    font-size: clamp(1.5rem, 1.214rem + 1.429vw, 2.5rem);
+    color: $black;
+
     font-weight: 500;
   }
   .current {

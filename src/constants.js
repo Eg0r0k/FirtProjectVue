@@ -7,4 +7,4 @@ export const NAV_ITEMS = [
   { id: 1, text: "Репродукции", link: "reproduction" },
   { id: 2, text: "Новинки", link: "new" },
   { id: 3, text: "О нас", link: "about" },
-]
+];

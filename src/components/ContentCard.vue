@@ -1,7 +1,7 @@
 <template>
   <div class="contentCard">
     <div class="contentCard__header">
-      <router-link :to="`/#art-${artInfo.id}`"  class="contentCard__close"><Xmark /></router-link>
+      <router-link :to="`/#art-${artInfo.id}`" class="contentCard__close"><Xmark /></router-link>
     </div>
     <div class="contentCard__container">
       <div class="contentCard__picture">
@@ -12,7 +12,9 @@
           <dt class="discriptionList__artName">{{ artInfo.artName }}</dt>
           <dd class="discriptionList__author">{{ artInfo.artAuthor }}</dd>
 
-          <CommonBtn class="btn--outline discriptionList__btn" @click.stop="artsStore.addToCart(artInfo.id)"> В корзину</CommonBtn>
+          <CommonBtn class="btn--outline discriptionList__btn" @click.stop="artsStore.addToCart(artInfo.id)">
+            В корзину</CommonBtn
+          >
 
           <dt class="discriptionList__info informationList">Информация</dt>
           <dd class="informationList__discription">
@@ -43,11 +45,9 @@ const id = computed(() => {
 });
 const artItem = computed(() => {
   const itemId = Number(id.value);
-  return artsStore.arts.find(item => item.id === itemId);
+  return artsStore.arts.find((item) => item.id === itemId);
 });
 const artInfo = ref(artItem.value);
-
-
 </script>
 <style lang="scss">
 @import "@/assets/_base.scss";

@@ -13,40 +13,39 @@
           <div>
             <h3>Репродукции</h3>
             <ul class="footer__menu">
-            <li class="footer__list">
-              <a class="footer__link link" href="">Франция</a>
-            </li>
-            <li class="footer__list">
-              <a class="footer__link link" href="">Германия</a>
-            </li>
-            <li class="footer__list">
-              <a class="footer__link link" href="">Англия</a>
-            </li>
-          </ul>
+              <li class="footer__list">
+                <a class="footer__link link" href="">Франция</a>
+              </li>
+              <li class="footer__list">
+                <a class="footer__link link" href="">Германия</a>
+              </li>
+              <li class="footer__list">
+                <a class="footer__link link" href="">Англия</a>
+              </li>
+            </ul>
           </div>
           <div>
             <h3>Новинки</h3>
-          <ul class="footer__menu">
-            <li class="footer__list">
-              <a class="footer__link link" href="">2021</a>
-            </li>
-            <li class="footer__list">
-              <a class="footer__link link" href="">2020</a>
-            </li>
-          </ul>
+            <ul class="footer__menu">
+              <li class="footer__list">
+                <a class="footer__link link" href="">2021</a>
+              </li>
+              <li class="footer__list">
+                <a class="footer__link link" href="">2020</a>
+              </li>
+            </ul>
           </div>
           <div>
             <h3>О нас</h3>
             <ul class="footer__menu">
-            <li class="footer__list">
-              <a class="footer__link link" href="">Художники</a>
-            </li>
-            <li class="footer__list">
-              <a class="footer__link link" href="">Менеджеры</a>
-            </li>
-          </ul>
+              <li class="footer__list">
+                <a class="footer__link link" href="">Художники</a>
+              </li>
+              <li class="footer__list">
+                <a class="footer__link link" href="">Менеджеры</a>
+              </li>
+            </ul>
           </div>
-          
         </nav>
         <nav class="footer__media">
           <ul class="footer__media-menu media">
@@ -62,7 +61,7 @@
             </li>
             <li class="media__list">
               <a href="" class="media__link link" aria-label="See us in Youtube">
-                <Youtube/>
+                <Youtube />
               </a>
             </li>
           </ul>
@@ -71,7 +70,6 @@
               <dt class="footer__brand--name">Ink. House ®</dt>
               <dd class="all-rights-reserved">All rights reserved</dd>
             </dl>
-          
           </div>
         </nav>
       </div>

@@ -15,7 +15,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const id = parseInt(to.params.id);
       const artsStore = useArtsStore();
-      const artExists = artsStore.arts.some(art => art.id === id);
+      const artExists = artsStore.arts.some((art) => art.id === id);
       if (!artExists) {
         next({ name: "NotFound" });
       } else {
@@ -30,11 +30,12 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    return savedPosition || new Promise((resolve)=>
-    {
-      setTimeout(()=> resolve({el:to.hash,top:200}),200)
-    })
-    
+    return (
+      savedPosition ||
+      new Promise((resolve) => {
+        setTimeout(() => resolve({ el: to.hash, top: 200 }), 200);
+      })
+    );
   },
 });
 

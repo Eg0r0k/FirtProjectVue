@@ -1,24 +1,28 @@
 <template>
-  <transition-group name="fade-cart"  >
-    <div class="cart__item itemArt" v-for="{ artUrlImage, artName, artAuthor, artPrice, id, quantity } in CartStore" :key="id">
-    <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина ${artName}`" loading="lazy" />
-    <div class="itemArt__content">
-      <dl class="itemArt__about">
-        <dt class="itemArt__name">{{ artName }}</dt>
-        <dd class="itemArt__author">{{ artAuthor }}</dd>
-        <dd class="itemArt__price">
-          <span class="fill-green">{{ artPrice.toLocaleString("ru-Ru") }} руб</span>
-        </dd>
-      </dl>
+  <transition-group name="fade-cart">
+    <div
+      class="cart__item itemArt"
+      v-for="{ artUrlImage, artName, artAuthor, artPrice, id, quantity } in CartStore"
+      :key="id"
+    >
+      <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина ${artName}`" loading="lazy" />
+      <div class="itemArt__content">
+        <dl class="itemArt__about">
+          <dt class="itemArt__name">{{ artName }}</dt>
+          <dd class="itemArt__author">{{ artAuthor }}</dd>
+          <dd class="itemArt__price">
+            <span class="fill-green">{{ artPrice.toLocaleString("ru-Ru") }} руб</span>
+          </dd>
+        </dl>
+      </div>
+      <div class="itemArt__quantity quantity">
+        <button class="quantity__btn" @click.stop="decrementQuantity(id)"><Minus /></button>{{ quantity }}
+        <button class="quantity__btn" @click.stop="incrementQuantity(id)"><Plus /></button>
+      </div>
+      <CommonBtn class="itemArt__delete">
+        <Trashbag class="itemArt__delete--icon" @click="artsStore.deleteFromCart(id)" />
+      </CommonBtn>
     </div>
-    <div class="itemArt__quantity quantity">
-      <button class="quantity__btn" @click.stop="decrementQuantity(id)"><Minus /></button>{{ quantity }}
-      <button class="quantity__btn" @click.stop="incrementQuantity(id)"><Plus /></button>
-    </div>
-    <CommonBtn class="itemArt__delete">
-      <Trashbag class="itemArt__delete--icon" @click="artsStore.deleteFromCart(id)" />
-    </CommonBtn>
-  </div>
   </transition-group>
 </template>
 <script setup>
@@ -36,19 +40,19 @@ const props = defineProps({
   },
 });
 
-const incrementQuantity = id => {
-  const artItem = artsStore.сartStore && artsStore.сartStore.find(el => el.id === id);
+const incrementQuantity = (id) => {
+  const artItem = artsStore.сartStore && artsStore.сartStore.find((el) => el.id === id);
   if (artItem) {
     artItem.quantity += 1;
   }
 };
-const decrementQuantity = id => {
-  const artItem = artsStore.сartStore && artsStore.сartStore.find(el => el.id === id);
+const decrementQuantity = (id) => {
+  const artItem = artsStore.сartStore && artsStore.сartStore.find((el) => el.id === id);
   if (artItem) {
     artItem.quantity -= 1;
   }
   if (artItem.quantity < 1) {
-    artsStore.сartStore = artsStore.сartStore.filter(item => item.id !== id);
+    artsStore.сartStore = artsStore.сartStore.filter((item) => item.id !== id);
   }
 };
 </script>

@@ -28,7 +28,6 @@ import TheFooter from "@/components/TheFooter.vue";
   min-width: 100%;
 
   &__container {
-  
     min-height: 50%;
     flex: 1;
     display: flex;
@@ -64,7 +63,6 @@ import TheFooter from "@/components/TheFooter.vue";
     margin-bottom: 20px;
   }
 }
-@media screen and (max-width:300px) {
-  
+@media screen and (max-width: 300px) {
 }
 </style>

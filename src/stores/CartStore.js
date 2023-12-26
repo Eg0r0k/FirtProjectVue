@@ -239,18 +239,18 @@ export const useArtsStore = defineStore("artStore", {
         throw new Error(`У настройки нету страны полученная страна ${country}`);
       }
 
-      this.sortedArts = this.arts.filter(el => el.country === country);
+      this.sortedArts = this.arts.filter((el) => el.country === country);
     },
     addToCart(id) {
       if (!Number.isInteger(id) || id < 0 || isNaN(id)) {
         throw new Error("Не верный id");
       }
 
-      const existingCartItem = this.сartStore.find(el => el.id === id);
+      const existingCartItem = this.сartStore.find((el) => el.id === id);
       if (existingCartItem) {
         existingCartItem.quantity += 1;
       } else {
-        const idx = this.arts.findIndex(el => el.id === id);
+        const idx = this.arts.findIndex((el) => el.id === id);
         if (idx !== -1) {
           this.сartStore.push({ ...this.arts[idx], quantity: 1 });
         } else {
@@ -262,12 +262,12 @@ export const useArtsStore = defineStore("artStore", {
       if (!Number.isInteger(id) || id < 0 || isNaN(id)) {
         throw new Error("Не верный id");
       }
-      const cartItemIndex = this.сartStore.findIndex(el => el.id === id);
+      const cartItemIndex = this.сartStore.findIndex((el) => el.id === id);
       if (cartItemIndex !== -1) {
         this.сartStore[cartItemIndex].quantity = 0;
         this.сartStore.splice(cartItemIndex, 1);
       }
     },
   },
-    persist: true,
+  persist: true,
 });

@@ -15,10 +15,8 @@
           </div>
         </div>
         <div class="cart__content">
-          
-          <div class="cart__empty"  v-if="artsStore.totalInCart === 0">В вашей корзине пусто 😉</div>
-          <CartItem :CartStore="artsStore.сartStore"  v-else/>
-
+          <div class="cart__empty" v-if="artsStore.totalInCart === 0">В вашей корзине пусто 😉</div>
+          <CartItem :CartStore="artsStore.сartStore" v-else />
         </div>
         <div class="cart__footer">
           <div class="cart__offer">
@@ -134,26 +132,24 @@ const closeCart = () => {
   }
 
   &__content {
-    overflow-y:scroll;
+    overflow-y: scroll;
     overflow-x: hidden;
     height: 100%;
-    width:100;
+    width: 100;
     &::-webkit-scrollbar {
-      width: 7px;            
+      width: 7px;
     }
     &::-webkit-scrollbar-track {
-      background:$ligth_green;       
+      background: $ligth_green;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: $green;   
-      border-radius: 20px; 
-
-     
+      background-color: $green;
+      border-radius: 20px;
     }
-  //display: flex;
-  //justify-content: center;
-  //flex-direction: column;
-  //gap: 9px;
+    //display: flex;
+    //justify-content: center;
+    //flex-direction: column;
+    //gap: 9px;
   }
 
   &__empty {
@@ -162,7 +158,7 @@ const closeCart = () => {
     min-height: 100%;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
   }
 }
 

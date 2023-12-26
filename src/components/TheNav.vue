@@ -6,7 +6,7 @@
     <Transition name="slide-fade">
       <ul class="nav__menu" v-if="isNavVisible">
         <NavItem v-for="item in navItems" :key="item.id">
-          <router-link @click="toggleNavVisibility" :to="`/#${item.link}`"> {{ item.text }}</router-link >
+          <router-link @click="toggleNavVisibility" :to="`/#${item.link}`"> {{ item.text }}</router-link>
         </NavItem>
       </ul>
     </Transition>
