@@ -10,8 +10,9 @@
       </div>
       <div class="footer__wrapper">
         <nav class="footer__nav">
-          <ul class="footer__menu">
+          <div>
             <h3>Репродукции</h3>
+            <ul class="footer__menu">
             <li class="footer__list">
               <a class="footer__link link" href="">Франция</a>
             </li>
@@ -22,8 +23,10 @@
               <a class="footer__link link" href="">Англия</a>
             </li>
           </ul>
-          <ul class="footer__menu">
+          </div>
+          <div>
             <h3>Новинки</h3>
+          <ul class="footer__menu">
             <li class="footer__list">
               <a class="footer__link link" href="">2021</a>
             </li>
@@ -31,8 +34,10 @@
               <a class="footer__link link" href="">2020</a>
             </li>
           </ul>
-          <ul class="footer__menu">
+          </div>
+          <div>
             <h3>О нас</h3>
+            <ul class="footer__menu">
             <li class="footer__list">
               <a class="footer__link link" href="">Художники</a>
             </li>
@@ -40,28 +45,33 @@
               <a class="footer__link link" href="">Менеджеры</a>
             </li>
           </ul>
+          </div>
+          
         </nav>
         <nav class="footer__media">
           <ul class="footer__media-menu media">
             <li class="media__list">
-              <a href="" class="media__link link">
+              <a href="" class="media__link link" aria-label="See us in Facebook">
                 <Facebook />
               </a>
             </li>
             <li class="media__list">
-              <a href="" class="media__link link">
+              <a href="" class="media__link link" aria-label="See us in Instagram">
                 <Instagram />
               </a>
             </li>
             <li class="media__list">
-              <a href="" class="media__link link">
-                <Youtube />
+              <a href="" class="media__link link" aria-label="See us in Youtube">
+                <Youtube/>
               </a>
             </li>
           </ul>
           <div class="footer__INK">
-            <dd class="footer__brand--name">Ink. House ®</dd>
-            <dd class="all-rights-reserved">All rights reserved</dd>
+            <dl>
+              <dt class="footer__brand--name">Ink. House ®</dt>
+              <dd class="all-rights-reserved">All rights reserved</dd>
+            </dl>
+          
           </div>
         </nav>
       </div>

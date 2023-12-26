@@ -1,7 +1,7 @@
 <template>
   <transition-group name="fade-cart"  >
     <div class="cart__item itemArt" v-for="{ artUrlImage, artName, artAuthor, artPrice, id, quantity } in CartStore" :key="id">
-    <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина ${artName}`" />
+    <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина ${artName}`" loading="lazy" />
     <div class="itemArt__content">
       <dl class="itemArt__about">
         <dt class="itemArt__name">{{ artName }}</dt>

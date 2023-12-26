@@ -224,6 +224,7 @@ export const useArtsStore = defineStore("artStore", {
     sortedArts: [],
     сartStore: [],
   }),
+
   getters: {
     totalPrice() {
       return this.сartStore.reduce((total, item) => total + item.artPrice * item.quantity, 0);
@@ -268,4 +269,5 @@ export const useArtsStore = defineStore("artStore", {
       }
     },
   },
+    persist: true,
 });

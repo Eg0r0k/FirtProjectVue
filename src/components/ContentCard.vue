@@ -12,7 +12,7 @@
           <dt class="discriptionList__artName">{{ artInfo.artName }}</dt>
           <dd class="discriptionList__author">{{ artInfo.artAuthor }}</dd>
 
-          <CommonBtn class="btn--outline discriptionList__btn"> В корзину</CommonBtn>
+          <CommonBtn class="btn--outline discriptionList__btn" @click.stop="artsStore.addToCart(artInfo.id)"> В корзину</CommonBtn>
 
           <dt class="discriptionList__info informationList">Информация</dt>
           <dd class="informationList__discription">
