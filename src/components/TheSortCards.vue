@@ -15,13 +15,13 @@
       </nav>
     </div>
   </section>
-  <TheCards :sortedArts="artsStore.sortedArts.length > 0 ? artsStore.sortedArts : artsStore.arts" />
+  <TheCards :sortedArts="artsStore.sortedArts.length > 0 ? artsStore.sortedArts : artsStore.arts"  v-if="shouldRenderCards" />
 </template>
 
 <script setup>
-import SettingBtn from "./settingBtn.vue";
+import SettingBtn from "./SettingBtn.vue";
 import TheCards from "./TheCards.vue";
-import { ref, computed } from "vue";
+import { ref, onMounted } from "vue";
 import { useArtsStore } from "@/stores/CartStore";
 
 const artsStore = useArtsStore();
@@ -32,7 +32,11 @@ const props = defineProps({
     required: true,
   },
 });
+const shouldRenderCards = ref(false);
 
+onMounted(() => {
+  shouldRenderCards.value = true;
+});
 const selectedCountry = ref("");
 const isActiveButton = ref(null);
 

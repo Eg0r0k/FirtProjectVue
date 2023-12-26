@@ -1,17 +1,18 @@
 <template>
   <section class="cards" id="reproduction">
     <div class="cards__container">
-      <div class="cards__empty" v-if="isArtCollectionEmpty">К сожалению мы ничего не нашли... 😫</div>
-      <div
-        class="card animate__animated animate__fadeIn"
-        v-for="{ artName, artAuthor, artPrice, artType, artUrlImage, id } of sortedArts"
-        :key="id"
-        v-else
-        :id="`art-${id}`"
-      >
-        <div class="card__picture">
+
+      <div class="card animate__animated animate__fadeIn"
+        v-for="{ artName, artAuthor, artPrice, artType, artUrlImage, id } of sortedArts" :key="id"
+        v-if="!isArtCollectionEmpty" :id="`art${id}`">
+        <div class="card__picture" role="img">
           <router-link :to="`/about/${id}`">
-            <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина: ${artName}`" loading="lazy" />
+            
+            <picture role="img" aria-label="Картина: {{ artName }}">
+              <source :srcset="`/img/webp/paint_${artUrlImage}.webp`" type="image/webp" media="(max-width:726px) ">
+              <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина: ${artName}`" loading="lazy" decoding="auto"
+                width="310" height="422" />
+            </picture>
           </router-link>
         </div>
         <div class="card__content">
@@ -28,6 +29,7 @@
           <CommonBtn class="btn--outline card__btn" @click="artsStore.addToCart(id)"> В корзину </CommonBtn>
         </div>
       </div>
+      <div class="cards__empty" v-else>К сожалению мы ничего не нашли... 😫</div>
     </div>
   </section>
 </template>
@@ -46,54 +48,62 @@ const props = defineProps({
   },
 });
 
-const checkArtCollection = () => {
-  isArtCollectionEmpty.value = props.sortedArts.length === 0;
-};
+
 const isArtCollectionEmpty = computed(() => props.sortedArts.length === 0);
 </script>
 
 <style scoped lang="scss">
 @import "@/assets/_base";
+
 .card {
   background-color: $ligth-green;
   padding: 20px 20px 30px;
   max-width: 350px;
   min-width: 290px;
+
   &__btn {
     width: 100%;
   }
+
   &__info {
     & dl {
       color: $black;
     }
   }
+
   &__author {
     color: $gray-green;
     font-weight: 500;
     font-size: 18px;
     margin-bottom: 10px;
   }
+
   &__name-art {
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 8px;
   }
+
   &__type-art {
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     margin-bottom: 30px;
   }
+
   &__picture {
     margin-bottom: 20px;
     min-height: 390px;
   }
+
   &__price-art {
     margin-bottom: 20px;
   }
 }
+
 .cards {
   margin-bottom: 70px;
+
   &__container {
     min-height: 400px;
     display: grid;
@@ -101,6 +111,7 @@ const isArtCollectionEmpty = computed(() => props.sortedArts.length === 0);
     justify-items: center;
     gap: 30px;
   }
+
   &__empty {
     align-self: center;
     font-size: 30px;
@@ -123,5 +134,4 @@ const isArtCollectionEmpty = computed(() => props.sortedArts.length === 0);
   .card {
     max-width: 290px;
   }
-}
-</style>
+}</style>

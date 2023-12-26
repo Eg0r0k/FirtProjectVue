@@ -1,7 +1,7 @@
 <template>
   <div class="contentCard">
     <div class="contentCard__header">
-      <router-link :to="`/#art-${artInfo.id}`" class="contentCard__close"><Xmark /></router-link>
+      <router-link :to="`/#art${artInfo.id}`" class="contentCard__close"><Xmark /></router-link>
     </div>
     <div class="contentCard__container">
       <div class="contentCard__picture">
@@ -49,7 +49,7 @@ const artItem = computed(() => {
 });
 const artInfo = ref(artItem.value);
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/assets/_base.scss";
 
 .contentCard {
