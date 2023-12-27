@@ -78,7 +78,7 @@ const closeCart = () => {
     top: 0;
     bottom: 0;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     background-color: rgba(0, 0, 0, 0.329);
     z-index: $cart-z; // Adjust the z-index here
   }

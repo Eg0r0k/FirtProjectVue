@@ -238,7 +238,7 @@ export const useArtsStore = defineStore("artStore", {
       if (!country) {
         throw new Error(`У настройки нету страны полученная страна ${country}`);
       }
-
+    
       this.sortedArts = this.arts.filter((el) => el.country === country);
     },
     addToCart(id) {

@@ -1,10 +1,12 @@
 <template lang="">
-  <button class="setting-btn" @click="handleClick" :class="{ current: isActive }">
+  <button type="button" class="setting-btn" @click="handleClick" :class="{ current: isActive }">
     <slot></slot>
   </button>
 </template>
 
 <script setup>
+
+
 const props = defineProps({
   setting: {
     type: Object,
@@ -13,6 +15,8 @@ const props = defineProps({
   isActive: Boolean,
 });
 const emit = defineEmits();
+ 
+
 
 const handleClick = () => {
   emit("click", props.setting);
