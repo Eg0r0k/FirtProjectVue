@@ -2,9 +2,15 @@
   <section calss="UsCommand" id="about">
     <div class="UsCommand__container">
       <div class="UsCommand__picture" role="img">
-        <picture >
-          <source srcset="/img/webp/Painting.webp" type="image/webp"  media="(max-width: 726px)" height="445" width="445">
-          <img src="/img/Painting.png" alt="picture" class="UsCommand__picture--img" loading="lazy"/>
+        <picture>
+          <source
+            srcset="/img/webp/Painting.webp"
+            type="image/webp"
+            media="(max-width: 726px)"
+            height="445"
+            width="445"
+          />
+          <img src="/img/Painting.png" alt="picture" class="UsCommand__picture--img" loading="lazy" />
         </picture>
       </div>
       <div class="UsCommand__content">
@@ -15,17 +21,35 @@
           консультация с широким активом.
         </p>
         <div class="UsCommand__avatars avatars" role="img">
-          <picture class="avatars__avatar" >
-            <source srcset="/avatars/webp/avatar_2.webp" type="image/webp" media="(max-width: 726px)" height="80" width="80">
-            <img src="/avatars/avatar_2.jpg" alt="avatar" class="avatars__avatar--img" loading="lazy"/>
+          <picture class="avatars__avatar">
+            <source
+              srcset="/avatars/webp/avatar_2.webp"
+              type="image/webp"
+              media="(max-width: 726px)"
+              height="80"
+              width="80"
+            />
+            <img src="/avatars/avatar_2.jpg" alt="avatar" class="avatars__avatar--img" loading="lazy" />
           </picture>
-          <picture class="avatars__avatar" >
-            <source srcset="/avatars/webp/avatar_3.webp" type="image/webp" media="(max-width: 726px)"  height="80" width="80">
+          <picture class="avatars__avatar">
+            <source
+              srcset="/avatars/webp/avatar_3.webp"
+              type="image/webp"
+              media="(max-width: 726px)"
+              height="80"
+              width="80"
+            />
             <img src="/avatars/avatar_3.jpg" alt="avatar" class="avatars__avatar--img" loading="lazy" />
           </picture>
-          <picture class="avatars__avatar" >
-            <source srcset="/avatars/webp/avatar_1.webp" type="image/webp" media="(max-width: 726px)"  height="80" width="80">
-            <img src="/avatars/avatar_1.jpg" alt="avatar" class="avatars__avatar--img" loading="lazy"  />
+          <picture class="avatars__avatar">
+            <source
+              srcset="/avatars/webp/avatar_1.webp"
+              type="image/webp"
+              media="(max-width: 726px)"
+              height="80"
+              width="80"
+            />
+            <img src="/avatars/avatar_1.jpg" alt="avatar" class="avatars__avatar--img" loading="lazy" />
           </picture>
         </div>
       </div>
@@ -77,4 +101,5 @@
     border-radius: 50%;
     overflow: hidden;
   }
-}</style>
+}
+</style>

@@ -43,6 +43,9 @@ const props = defineProps({
 const incrementQuantity = (id) => {
   const artItem = artsStore.сartStore && artsStore.сartStore.find((el) => el.id === id);
   if (artItem) {
+    if (artItem.quantity > 98) {
+      artItem.quantity = Math.max(98);
+    }
     artItem.quantity += 1;
   }
 };

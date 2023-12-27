@@ -1,10 +1,10 @@
 <template lang="">
   <nav class="header__nav nav">
-    <CommonBtn class="nav__burger" @click="toggleNavVisibility" id="burgerMenu" title='block' >
+    <CommonBtn class="nav__burger" @click="toggleNavVisibility" id="burgerMenu" title="block">
       <Menu />
     </CommonBtn>
-    <Transition name="slide-fade" >
-      <ul class="nav__menu" v-if="isNavVisible" >
+    <Transition name="slide-fade">
+      <ul class="nav__menu" v-if="isNavVisible">
         <NavItem v-for="item in navItems" :key="item.id">
           <router-link @click="toggleNavVisibility" :to="`/#${item.link}`"> {{ item.text }}</router-link>
         </NavItem>

@@ -220,7 +220,6 @@ export const useArtsStore = defineStore("artStore", {
           "Репродукция 'Дама с собачкой' от известного художника Анри Селина — воплощение изыска и элегантности. Это произведение искусства, выполненное акрилом на бумаге, призвано внести атмосферу стиля и тепла в ваш интерьер. Размеры (50х80 см) позволяют полностью погрузиться в детали этого удивительного произведения. Картина подчеркнет ваш вкус и станет изысканным украшением для любого помещения. Цена этой репродукции составляет 16 500 рублей, предоставляя отличную возможность обогатить ваш дом уникальным произведением искусства.",
       },
     ],
-    currentCountry: null,
     sortedArts: [],
     сartStore: [],
   }),
@@ -238,7 +237,7 @@ export const useArtsStore = defineStore("artStore", {
       if (!country) {
         throw new Error(`У настройки нету страны полученная страна ${country}`);
       }
-
+      
       this.sortedArts = this.arts.filter((el) => el.country === country);
     },
     addToCart(id) {
@@ -248,6 +247,9 @@ export const useArtsStore = defineStore("artStore", {
 
       const existingCartItem = this.сartStore.find((el) => el.id === id);
       if (existingCartItem) {
+        if (existingCartItem.quantity > 98) {
+          existingCartItem.quantity = Math.max(98);
+        }
         existingCartItem.quantity += 1;
       } else {
         const idx = this.arts.findIndex((el) => el.id === id);
