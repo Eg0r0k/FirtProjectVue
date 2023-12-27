@@ -2,8 +2,8 @@
   <main class="main">
     <div class="main__container">
       <picture>
-        <source srcset="/img/webp/Main1.webp" type="image/webp" media="(max-width: 1024px)" width="540" height="621">
-        <img src="/img/Main1.png" alt="bird" class="main__img" decoding="async" role="presentation" fetchpriority="high" width="540" height="621"/>
+        <source srcset="/img/webp/Main1.webp" type="image/webp" media="(max-width: 1024px)" width="540" height="621" />
+        <img src="/img/Main1.png" alt="bird" class="main__img" width="540" height="621" />
       </picture>
       <TheMainContent />
     </div>

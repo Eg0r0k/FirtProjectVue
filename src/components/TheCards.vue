@@ -1,17 +1,25 @@
 <template>
   <section class="cards" id="reproduction">
     <div class="cards__container">
-
-      <div class="card animate__animated animate__fadeIn"
-        v-for="{ artName, artAuthor, artPrice, artType, artUrlImage, id } of sortedArts" :key="id"
-        v-if="!isArtCollectionEmpty" :id="`art${id}`">
+      <div
+        class="card animate__animated animate__fadeIn"
+        v-for="{ artName, artAuthor, artPrice, artType, artUrlImage, id } of sortedArts"
+        :key="id"
+        v-if="!isArtCollectionEmpty"
+        :id="`art${id}`"
+      >
         <div class="card__picture" role="img">
           <router-link :to="`/about/${id}`">
-            
-            <picture  aria-label="Картина: {{ artName }}">
-              <source :srcset="`/img/webp/paint_${artUrlImage}.webp`" type="image/webp" media="(max-width:726px) ">
-              <img :src="`/img/paint_${artUrlImage}.jpg`" :alt="`Картина: ${artName}`" loading="lazy" decoding="auto"
-                width="435" height="422" />
+            <picture aria-label="Картина: {{ artName }}">
+              <source :srcset="`/img/webp/paint_${artUrlImage}.webp`" type="image/webp" media="(max-width:726px) " />
+              <img
+                :src="`/img/paint_${artUrlImage}.jpg`"
+                :alt="`Картина: ${artName}`"
+                loading="lazy"
+                decoding="auto"
+                width="435"
+                height="422"
+              />
             </picture>
           </router-link>
         </div>
@@ -47,7 +55,6 @@ const props = defineProps({
     default: () => [],
   },
 });
-
 
 const isArtCollectionEmpty = computed(() => props.sortedArts.length === 0);
 </script>
@@ -134,4 +141,5 @@ const isArtCollectionEmpty = computed(() => props.sortedArts.length === 0);
   .card {
     max-width: 290px;
   }
-}</style>
+}
+</style>

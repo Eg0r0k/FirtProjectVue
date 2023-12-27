@@ -7,7 +7,7 @@
     <p class="main__about">
       Высокое качество отрисовки на плотной бумаге или льняном холсте. Редкие произведения, доступные цены.
     </p>
-    <CommonBtn class="btn--outline">Продукция</CommonBtn>
+    <router-link to="#reproduction"><CommonBtn class="btn--outline">Продукция</CommonBtn></router-link>
   </main>
 </template>
 

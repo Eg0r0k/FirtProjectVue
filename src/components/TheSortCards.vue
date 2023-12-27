@@ -15,11 +15,14 @@
       </nav>
     </div>
   </section>
-  <TheCards :sortedArts="artsStore.sortedArts.length > 0 ? artsStore.sortedArts : artsStore.arts"  v-if="shouldRenderCards" />
+  <TheCards
+    :sortedArts="artsStore.sortedArts.length > 0 ? artsStore.sortedArts : artsStore.arts"
+    v-if="shouldRenderCards"
+  />
 </template>
 
 <script setup>
-import SettingBtn from "./SettingBtn.vue";
+import SettingBtn from "./settingBtn.vue";
 import TheCards from "./TheCards.vue";
 import { ref, onMounted } from "vue";
 import { useArtsStore } from "@/stores/CartStore";

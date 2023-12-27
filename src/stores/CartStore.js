@@ -248,6 +248,9 @@ export const useArtsStore = defineStore("artStore", {
 
       const existingCartItem = this.сartStore.find((el) => el.id === id);
       if (existingCartItem) {
+        if (existingCartItem.quantity > 98) {
+          existingCartItem.quantity = Math.max(98);
+        }
         existingCartItem.quantity += 1;
       } else {
         const idx = this.arts.findIndex((el) => el.id === id);
