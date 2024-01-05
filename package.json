@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "deploy": "vite build && gh-pages -d dist",
     "build": "vite build",
     "preview": "vite preview",
     "serve": "vue-cli-service serve",
@@ -28,8 +29,10 @@
     "@babel/core": "^7.23.6",
     "@babel/preset-env": "^7.23.6",
     "@vitejs/plugin-vue": "^4.5.1",
+    "gh-pages": "^6.1.1",
     "prettier": "3.1.1",
     "sass": "^1.69.5",
+    "typescript": "^5.3.3",
     "vite": "^5.0.5",
     "vite-plugin-checker": "^0.6.2"
   }

@@ -1,0 +1,41 @@
+@import "./resets";
+@import "./normalaze";
+@import "./base";
+@import "./mixins";
+@import "./animations";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap");
+body {
+  background-color: $body-backColor;
+  min-width: 320px;
+  height: 100%;
+  font-size: 20px;
+  font-family: Raleway;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 200px;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 1rem;
+}
+
+[class*="container"] {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+a {
+  text-decoration: none;
+}

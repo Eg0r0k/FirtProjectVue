@@ -1,0 +1,61 @@
+$black: rgba(44, 45, 53, 1);
+$ligth_green: rgba(225, 237, 230, 1);
+$green: #598d66;
+$white: #ffff;
+$gray_green: rgba(134, 146, 139, 1);
+$body_backColor: rgba(244, 246, 245, 1);
+$yellow: #eedb6d;
+$red: #dd3939;
+$header-z: 100;
+$cart-z: 102;
+$notebook-breakpoint: 656px;
+$small-tablet-breakpoint: 768px;
+$tablet-breakpoint: 965px;
+
+$transition-duration: 0.1s;
+$button-padding: 20px 60px;
+$button-font-size: 20px;
+$button-font-weight: 500;
+
+%base-button-styles {
+  padding: $button-padding;
+  font-size: $button-font-size;
+  font-style: normal;
+  font-weight: $button-font-weight;
+  line-height: normal;
+  transition: all $transition-duration ease-in-out;
+}
+
+.btn--outline {
+  @extend %base-button-styles;
+  box-shadow: 0 0 0 1.5px $green;
+  color: $green;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.btn--outline--yellow {
+  @extend %base-button-styles;
+  color: $black;
+  background-color: $yellow !important;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.btn--fill {
+  @extend %base-button-styles;
+  background-color: $green !important;
+  color: $white;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.fill-green {
+  color: $green;
+}
